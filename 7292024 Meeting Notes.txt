@@ -1,6 +1,0 @@
-7/29/2024 Meeting Notes
--Team lead is Daniel Angelo Bellonzi
--Made GitHub repository
--Decided on blog project
--Made user stories
--Created a draft database schema
