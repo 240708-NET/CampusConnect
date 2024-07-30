@@ -1,6 +1,5 @@
 7/30/2024 Meeting Notes
 -Did group Git exercise
-
 -Loosely assigned jobs to team members
 --DB through Entity framework = Daniel
 --API = Jae
