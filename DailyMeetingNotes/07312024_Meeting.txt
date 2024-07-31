@@ -1,0 +1,3 @@
+7/31/2024 Meeting Notes
+-Created the general file structure for our project, allowing team members to work on it individually ASAP with minimal git merge conflicts.
+-Since database is being implemented through an EF code-first migration, put the EF Core code in the models directory under the BlogAPI directory.
