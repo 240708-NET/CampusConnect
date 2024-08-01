@@ -1,0 +1,25 @@
+/* Custom styling for the navbar */
+.navbar-custom {
+    background-color: #001f3f; /* Navy background */
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-nav .nav-link {
+    color: #ffffff; /* White text color */
+}
+
+/* Custom styling for the body */
+body {
+    background-color: #f0f8ff; /* Very light blue background */
+    color: #001f3f; /* Dark navy text color */
+}
+
+/* Styling for the blog title */
+h1.display-4 {
+    color: #001f3f; /* Dark navy text color */
+}
+
+/* Custom styling for post cards */
+.card {
+    margin-bottom: 1rem; /* Space between cards */
+}
