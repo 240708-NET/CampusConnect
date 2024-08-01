@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusConnect</title>
+    <!-- Bootstrap CSS for styling -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS for additional styling -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand" href="#">CampusConnect</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="login-link">Log In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="signup-link">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="profile-link">Profile</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container mt-4">
+        <!-- Blog Title -->
+        <div class="text-center mb-4">
+            <h1 class="display-4 font-weight-bold">CampusConnect</h1>
+        </div>
+        
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <!-- Filter dropdown for categories -->
+                <div class="form-group">
+                    <label for="categoryFilter">Filter by Category:</label>
+                    <select class="form-control" id="categoryFilter">
+                        <option value="">Select Category</option>
+                        <!-- Categories will be dynamically loaded here -->
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <!-- Filter dropdown for tags -->
+                <div class="form-group">
+                    <label for="tagFilter">Filter by Tag:</label>
+                    <select class="form-control" id="tagFilter">
+                        <option value="">Select Tag</option>
+                        <!-- Tags will be dynamically loaded here -->
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Container to load posts dynamically -->
+        <div class="row" id="posts-container">
+            <!-- Posts will be dynamically inserted here by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Modals for user login and signup -->
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Log In</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Login form placeholder -->
+                    <!-- Form fields will be added here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Log In</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signupModalLabel">Sign Up</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Sign Up form placeholder -->
+                    <!-- Form fields will be added here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/scripts.js"></script>
+</body>
+</html>
