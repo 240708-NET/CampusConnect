@@ -19,6 +19,14 @@
 - CreateAt (DateTime)
 - EditedAt (DateTime)
 
+## Tags:    
+- ID (int, not null)
+- Name (varchar, not null)
+
+## Post Tags:
+- PostID (int, not null)
+- TagID (int, not null)
+
 ## Comment:
 - ID (int, not null, foreign key)
 - PostID (int, not null, foreign key)
