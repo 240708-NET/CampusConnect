@@ -3,7 +3,7 @@
 -Ibrahim pushed his front-end progress
 -Daniel added more to ERD.md
 
--Josh will research UnitX and Jest for testing
+-Josh will research xUnit and Jest for testing
 -Daniel will start models and migrations for database-related requirements
 -Jae will start working on API
 -Ibrahim will continue front-end progress
