@@ -1,0 +1,10 @@
+8/2/2024 Meeting Notes
+
+-Jae pushed his progress on the API
+
+-Over the weekend:
+--Josh will work on documentation
+--Daniel will work on models and IRepository
+--Jae will work on API
+--Ibrahim will work on front-end
+--All members will make sure to keep everything as uniform as possible for ease of integrating later on

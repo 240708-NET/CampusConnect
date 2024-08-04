@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 using System.ComponentModel.DataAnnotations;
 
 namespace BlogAPI.Models
@@ -30,3 +31,14 @@ namespace BlogAPI.Models
         
     }
 }
+=======
+namespace BlogApi.Models;
+
+public class User
+{
+    public long Id { get; set; }
+    public required string Username { get; set; }
+    public required string Password { get; set; }
+    public bool IsAdmin { get; set; }
+}
+>>>>>>> 939d7f29010a3e204c7bb9cc88dffc3afd945a55

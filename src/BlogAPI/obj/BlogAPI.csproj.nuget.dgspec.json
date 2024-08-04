@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "G:\\Documents\\Revature\\P2-Team5\\src\\BlogAPI\\BlogAPI.csproj": {}
   },
   "projects": {
@@ -15,6 +16,22 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Bellonzi\\AppData\\Roaming\\NuGet\\NuGet.Config"
+=======
+    "/Users/jjwong0915/Documents/Revature/P2-Team5/src/BlogApi/BlogApi.csproj": {}
+  },
+  "projects": {
+    "/Users/jjwong0915/Documents/Revature/P2-Team5/src/BlogApi/BlogApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/jjwong0915/Documents/Revature/P2-Team5/src/BlogApi/BlogApi.csproj",
+        "projectName": "BlogApi",
+        "projectPath": "/Users/jjwong0915/Documents/Revature/P2-Team5/src/BlogApi/BlogApi.csproj",
+        "packagesPath": "/Users/jjwong0915/.nuget/packages/",
+        "outputPath": "/Users/jjwong0915/Documents/Revature/P2-Team5/src/BlogApi/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/jjwong0915/.nuget/NuGet/NuGet.Config"
+>>>>>>> 939d7f29010a3e204c7bb9cc88dffc3afd945a55
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -43,9 +60,29 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "Microsoft.AspNetCore.OpenApi": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.6, )"
+              "version": "[8.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[8.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.7, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[8.0.3, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -71,7 +108,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
