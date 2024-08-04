@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kuyan\\240708-NET\\P2\\P2-Team5\\src\\BlogAPI\\BlogAPI.csproj": {}
+    "G:\\Documents\\Revature\\P2-Team5\\src\\BlogAPI\\BlogAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kuyan\\240708-NET\\P2\\P2-Team5\\src\\BlogAPI\\BlogAPI.csproj": {
+    "G:\\Documents\\Revature\\P2-Team5\\src\\BlogAPI\\BlogAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kuyan\\240708-NET\\P2\\P2-Team5\\src\\BlogAPI\\BlogAPI.csproj",
+        "projectUniqueName": "G:\\Documents\\Revature\\P2-Team5\\src\\BlogAPI\\BlogAPI.csproj",
         "projectName": "BlogAPI",
-        "projectPath": "C:\\Users\\kuyan\\240708-NET\\P2\\P2-Team5\\src\\BlogAPI\\BlogAPI.csproj",
-        "packagesPath": "C:\\Users\\kuyan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kuyan\\240708-NET\\P2\\P2-Team5\\src\\BlogAPI\\obj\\",
+        "projectPath": "G:\\Documents\\Revature\\P2-Team5\\src\\BlogAPI\\BlogAPI.csproj",
+        "packagesPath": "C:\\Users\\Bellonzi\\.nuget\\packages\\",
+        "outputPath": "G:\\Documents\\Revature\\P2-Team5\\src\\BlogAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\kuyan\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Bellonzi\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
