@@ -3,9 +3,9 @@ namespace BlogAPI.Repositories;
 using BlogAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
-public class GenericRepository<TEntity>(BlogContext context) where TEntity : class
+public class GenericRepository<TEntity>(DbContext context) : IGenericRepository<TEntity> where TEntity : class
 {
-    protected BlogContext Context = context;
+    protected DbContext Context = context;
     protected DbSet<TEntity> EntitySet = context.Set<TEntity>();
 
     public virtual Task<List<TEntity>> Get()

@@ -9,11 +9,11 @@ using BlogAPI.Repositories;
 [ApiController]
 public class UserController(BlogContext context) : ControllerBase
 {
-    private readonly UserRepository _userRepository = new(context);
+    private readonly IGenericRepository<User> _userRepository = new UserRepository(context);
 
     // GET: api/User
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+    public async Task<ActionResult<List<User>>> GetUsers()
     {
         return await _userRepository.Get();
     }
@@ -37,7 +37,7 @@ public class UserController(BlogContext context) : ControllerBase
 
     // PUT: api/User/{id}
     [HttpPut("{id}")]
-    public async Task<IActionResult> PutUser(int id, User user)
+    public async ValueTask<IActionResult> PutUser(int id, User user)
     {
         if (id != user.ID) return BadRequest();
         try
