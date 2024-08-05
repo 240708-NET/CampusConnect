@@ -1,37 +1,20 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "G:\\Documents\\Revature\\P2-Team5\\src\\BlogAPI\\BlogAPI.csproj": {}
+    "C:\\Users\\kuyan\\240708-NET\\P2\\P2-Team5\\src\\BlogAPI\\BlogAPI.csproj": {}
   },
   "projects": {
-    "G:\\Documents\\Revature\\P2-Team5\\src\\BlogAPI\\BlogAPI.csproj": {
+    "C:\\Users\\kuyan\\240708-NET\\P2\\P2-Team5\\src\\BlogAPI\\BlogAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Documents\\Revature\\P2-Team5\\src\\BlogAPI\\BlogAPI.csproj",
+        "projectUniqueName": "C:\\Users\\kuyan\\240708-NET\\P2\\P2-Team5\\src\\BlogAPI\\BlogAPI.csproj",
         "projectName": "BlogAPI",
-        "projectPath": "G:\\Documents\\Revature\\P2-Team5\\src\\BlogAPI\\BlogAPI.csproj",
-        "packagesPath": "C:\\Users\\Bellonzi\\.nuget\\packages\\",
-        "outputPath": "G:\\Documents\\Revature\\P2-Team5\\src\\BlogAPI\\obj\\",
+        "projectPath": "C:\\Users\\kuyan\\240708-NET\\P2\\P2-Team5\\src\\BlogAPI\\BlogAPI.csproj",
+        "packagesPath": "C:\\Users\\kuyan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kuyan\\240708-NET\\P2\\P2-Team5\\src\\BlogAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Bellonzi\\AppData\\Roaming\\NuGet\\NuGet.Config"
-=======
-    "/Users/jjwong0915/Documents/Revature/P2-Team5/src/BlogApi/BlogApi.csproj": {}
-  },
-  "projects": {
-    "/Users/jjwong0915/Documents/Revature/P2-Team5/src/BlogApi/BlogApi.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/Users/jjwong0915/Documents/Revature/P2-Team5/src/BlogApi/BlogApi.csproj",
-        "projectName": "BlogApi",
-        "projectPath": "/Users/jjwong0915/Documents/Revature/P2-Team5/src/BlogApi/BlogApi.csproj",
-        "packagesPath": "/Users/jjwong0915/.nuget/packages/",
-        "outputPath": "/Users/jjwong0915/Documents/Revature/P2-Team5/src/BlogApi/obj/",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "/Users/jjwong0915/.nuget/NuGet/NuGet.Config"
->>>>>>> 939d7f29010a3e204c7bb9cc88dffc3afd945a55
+          "C:\\Users\\kuyan\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -108,7 +91,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

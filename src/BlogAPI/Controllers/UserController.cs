@@ -2,7 +2,7 @@ namespace BlogApi.Controllers;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BlogApi.Models;
+using BlogAPI.Models;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -35,14 +35,14 @@ public class UserController(BlogContext context) : ControllerBase
     {
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
-        return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
+        return CreatedAtAction(nameof(GetUser), new { id = user.ID }, user);
     }
 
     // PUT: api/User/{id}
     [HttpPut("{id}")]
     public async Task<IActionResult> PutUser(long id, User user)
     {
-        if (id != user.Id) return BadRequest();
+        if (id != user.ID) return BadRequest();
         _context.Entry(user).State = EntityState.Modified;
         try
         {
@@ -50,7 +50,7 @@ public class UserController(BlogContext context) : ControllerBase
         }
         catch (DbUpdateConcurrencyException)
         {
-            if (!_context.Users.Any(e => e.Id == id)) return NotFound();
+            if (!_context.Users.Any(e => e.ID == id)) return NotFound();
             else throw;
         }
         return NoContent();

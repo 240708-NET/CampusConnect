@@ -1,17 +1,13 @@
-using BlogAPI.Models
-{
+using BlogAPI.Models;
     
-    namespace BlogAPI.Repositories
+namespace BlogAPI.Repositories
+{
+    public interface IRepository
     {
-        public interface IRepository
-        {
-            Task<List<User>> GetAllUsers ();
-            Task<User> GetUserByID ( int id );
-            Task<User> AddUser ( User user );
-            Task UpdateUser ( User user);
-            Task DeleteEmployee ( User user );
-            
-        }
-        
+       Task<List<User>> GetAllUsers ();
+        Task<User> GetUserByID ( int id );
+        Task<User> AddUser ( User user );
+        Task UpdateUser ( User user);
+        Task DeleteEmployee ( User user );
     }
 }
