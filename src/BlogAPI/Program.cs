@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using BlogApi.Models;
+using BlogAPI.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<BlogContext>(opt => opt.UseInMemoryDatabase("BlogPlatform"));

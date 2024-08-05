@@ -2,8 +2,8 @@ using Xunit;                                //For [Fact], [Theory], etc.
 using Moq;                                  //For Setup, Verify, ReturnsAsync
 using Microsoft.AspNetCore.Mvc;             //For ActionResult, CreatedAtActionResult, etc.
 using Microsoft.EntityFrameworkCore;        //For DbContext
-using BlogApi.Controllers;                  //UserController.cs is in here
-using BlogApi.Models;                       //user and BlogContext are in here
+using BlogAPI.Controllers;                  //UserController.cs is in here
+using BlogAPI.Models;                       //user and BlogContext are in here
 
 namespace BlogAPITests;
 
