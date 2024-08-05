@@ -7,22 +7,20 @@ using BlogAPI.Repositories;
 
 [Route("api/[controller]")]
 [ApiController]
-public class UserController(BlogContext context) : ControllerBase
+public class UserController(IUserRepository repository) : ControllerBase
 {
-    private readonly IGenericRepository<User> _userRepository = new UserRepository(context);
-
     // GET: api/User
     [HttpGet]
     public async Task<ActionResult<List<User>>> GetUsers()
     {
-        return await _userRepository.Get();
+        return await repository.Get();
     }
 
     // GET: api/User/{id}
     [HttpGet("{id}")]
     public async Task<ActionResult<User>> GetUser(int id)
     {
-        var user = await _userRepository.GetById(id);
+        var user = await repository.GetById(id);
         if (user == null) return NotFound();
         return user;
     }
@@ -31,7 +29,7 @@ public class UserController(BlogContext context) : ControllerBase
     [HttpPost]
     public async Task<ActionResult<User>> PostUser(User user)
     {
-        await _userRepository.Insert(user);
+        await repository.Insert(user);
         return CreatedAtAction(nameof(GetUser), new { id = user.ID }, user);
     }
 
@@ -42,11 +40,11 @@ public class UserController(BlogContext context) : ControllerBase
         if (id != user.ID) return BadRequest();
         try
         {
-            await _userRepository.Update(user);
+            await repository.Update(user);
         }
         catch (DbUpdateConcurrencyException)
         {
-            var targetUser = await _userRepository.GetById(id);
+            var targetUser = await repository.GetById(id);
             if (targetUser == null) return NotFound();
             throw;
         }
@@ -57,9 +55,9 @@ public class UserController(BlogContext context) : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteUser(int id)
     {
-        var user = await _userRepository.GetById(id);
+        var user = await repository.GetById(id);
         if (user == null) return NotFound();
-        await _userRepository.Delete(user);
+        await repository.Delete(user);
         return NoContent();
     }
 }
