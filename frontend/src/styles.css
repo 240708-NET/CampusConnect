@@ -1,0 +1,49 @@
+/* Global styles for the application */
+
+/* Set background color for the entire page */
+body {
+    background-color: #e0f7fa; /* Light blue background */
+    color: #003c8f; /* Dark navy text color */
+    font-family: Arial, sans-serif; /* Font style */
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Styles for the App component */
+  .App {
+    text-align: center;
+  }
+  
+  /* Navbar styles */
+  .navbar {
+    background-color: #003c8f; /* Navy background for navbar */
+    color: #ffffff; /* White text color for navbar */
+    padding: 1rem;
+  }
+  
+  .navbar-title {
+    margin: 0;
+  }
+  
+  /* Main page styles */
+  .main-page {
+    padding: 2rem;
+  }
+  
+  /* Post list styles */
+  .post-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  /* Post card styles */
+  .post-card {
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 1rem;
+    width: 300px;
+  }
+  
