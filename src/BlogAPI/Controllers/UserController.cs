@@ -1,31 +1,27 @@
-namespace BlogApi.Controllers;
+namespace BlogAPI.Controllers;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BlogApi.Models;
+using BlogAPI.Models;
+using BlogAPI.Repositories;
 
 [Route("api/[controller]")]
 [ApiController]
-public class UserController(BlogContext context) : ControllerBase
+public class UserController(IUserRepository repository) : ControllerBase
 {
-    private readonly BlogContext _context = context;
-
     // GET: api/User
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+    public async Task<ActionResult<List<User>>> GetUsers()
     {
-        return await _context.Users.ToListAsync();
+        return await repository.Get();
     }
 
     // GET: api/User/{id}
     [HttpGet("{id}")]
-    public async Task<ActionResult<User>> GetUser(long id)
+    public async Task<ActionResult<User>> GetUser(int id)
     {
-        var user = await _context.Users.FindAsync(id);
-        if (user == null)
-        {
-            return NotFound();
-        }
+        var user = await repository.GetById(id);
+        if (user == null) return NotFound();
         return user;
     }
 
@@ -33,40 +29,35 @@ public class UserController(BlogContext context) : ControllerBase
     [HttpPost]
     public async Task<ActionResult<User>> PostUser(User user)
     {
-        _context.Users.Add(user);
-        await _context.SaveChangesAsync();
-        return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
+        await repository.Insert(user);
+        return CreatedAtAction(nameof(GetUser), new { id = user.ID }, user);
     }
 
     // PUT: api/User/{id}
     [HttpPut("{id}")]
-    public async Task<IActionResult> PutUser(long id, User user)
+    public async ValueTask<IActionResult> PutUser(int id, User user)
     {
-        if (id != user.Id) return BadRequest();
-        _context.Entry(user).State = EntityState.Modified;
+        if (id != user.ID) return BadRequest();
         try
         {
-            await _context.SaveChangesAsync();
+            await repository.Update(user);
         }
         catch (DbUpdateConcurrencyException)
         {
-            if (!_context.Users.Any(e => e.Id == id)) return NotFound();
-            else throw;
+            var targetUser = await repository.GetById(id);
+            if (targetUser == null) return NotFound();
+            throw;
         }
         return NoContent();
     }
 
     // DELETE: api/User/{id}
     [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteUser(long id)
+    public async Task<IActionResult> DeleteUser(int id)
     {
-        var user = await _context.Users.FindAsync(id);
-        if (user == null)
-        {
-            return NotFound();
-        }
-        _context.Users.Remove(user);
-        await _context.SaveChangesAsync();
+        var user = await repository.GetById(id);
+        if (user == null) return NotFound();
+        await repository.Delete(user);
         return NoContent();
     }
 }

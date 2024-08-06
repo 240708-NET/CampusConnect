@@ -3,8 +3,7 @@ using BlogAPI.Models;
 
 namespace BlogApi.Models;
 
-public class BlogContext : DbContext
+public class BlogContext(DbContextOptions<BlogContext> options) : DbContext(options)
 {
-    public BlogContext(DbContextOptions<BlogContext> options) : base(options) { }
     public DbSet<User> Users { get; set; }
 }
