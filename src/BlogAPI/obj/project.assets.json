@@ -8296,34 +8296,19 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\Bellonzi\\.nuget\\packages\\": {}
-=======
-    "/Users/jjwong0915/.nuget/packages/": {}
->>>>>>> 939d7f29010a3e204c7bb9cc88dffc3afd945a55
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "G:\\Documents\\Revature\\P2-Team5\\src\\BlogAPI\\BlogAPI.csproj",
-      "projectName": "BlogAPI",
-      "projectPath": "G:\\Documents\\Revature\\P2-Team5\\src\\BlogAPI\\BlogAPI.csproj",
+      "projectUniqueName": "G:\\Documents\\Revature\\P2-Team5\\src\\BlogAPI\\BlogApi.csproj",
+      "projectName": "BlogApi",
+      "projectPath": "G:\\Documents\\Revature\\P2-Team5\\src\\BlogAPI\\BlogApi.csproj",
       "packagesPath": "C:\\Users\\Bellonzi\\.nuget\\packages\\",
       "outputPath": "G:\\Documents\\Revature\\P2-Team5\\src\\BlogAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Bellonzi\\AppData\\Roaming\\NuGet\\NuGet.Config"
-=======
-      "projectUniqueName": "/Users/jjwong0915/Documents/Revature/P2-Team5/src/BlogApi/BlogApi.csproj",
-      "projectName": "BlogApi",
-      "projectPath": "/Users/jjwong0915/Documents/Revature/P2-Team5/src/BlogApi/BlogApi.csproj",
-      "packagesPath": "/Users/jjwong0915/.nuget/packages/",
-      "outputPath": "/Users/jjwong0915/Documents/Revature/P2-Team5/src/BlogApi/obj/",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "/Users/jjwong0915/.nuget/NuGet/NuGet.Config"
->>>>>>> 939d7f29010a3e204c7bb9cc88dffc3afd945a55
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -8400,8 +8385,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file G:\\Documents\\Revature\\P2-Team5\\src\\BlogAPI\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

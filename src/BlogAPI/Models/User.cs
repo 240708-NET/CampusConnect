@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 using System.ComponentModel.DataAnnotations;
 
 namespace BlogAPI.Models
@@ -10,35 +9,31 @@ namespace BlogAPI.Models
         public int ID { get; set; }
         public required string Username { get; set; }
         public required string Password { get; set; }
-        public bool Admin { get; set; }
+        public bool IsAdmin { get; set; }
+        public List<Post> Posts { get; set; }
+        public List<Comment> Comments { get; set; }
 
-        public User( int ID, string Username, string Password, bool Admin = false)
+        public User( int ID, string Username, string Password, List<Post> Posts, List<Comment> Comments, bool IsAdmin = false )
         {
             this.ID = ID;
             this.Username = Username;
             this.Password = Password;
-            this.Admin = Admin;
+            this.IsAdmin = IsAdmin;
+            this.Posts = Posts;
+            this.Comments = Comments;
         }
 
-        public User( string Username, string Password, bool Admin = false)
+        public User( string Username, string Password, List<Post> Posts, List<Comment> Comments, bool IsAdmin = false)
         {
             this.Username = Username;
             this.Password = Password;
-            this.Admin = Admin;
+            this.IsAdmin = IsAdmin;
+            this.Posts = Posts;
+            this.Comments = Comments;
         }
 
         public User() {}
         
     }
 }
-=======
-namespace BlogApi.Models;
 
-public class User
-{
-    public long Id { get; set; }
-    public required string Username { get; set; }
-    public required string Password { get; set; }
-    public bool IsAdmin { get; set; }
-}
->>>>>>> 939d7f29010a3e204c7bb9cc88dffc3afd945a55
