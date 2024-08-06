@@ -13,9 +13,10 @@ namespace BlogAPI.Models
         public Post OriginalPost { get; set; }
         public User Commenter { get; set; }
         public Comment ParentComment { get; set; }
+        public List<Comment> ChildComments { get; set; }
 
 
-        public Comment ( int ID, string Body, DateTime CreatedAt, DateTime EditedAt, Post OriginalPost, User Commenter, Comment ParentComment )
+        public Comment ( int ID, string Body, DateTime CreatedAt, DateTime EditedAt, Post OriginalPost, User Commenter, Comment ParentComment, List<Comment> ChildComments )
         {
             this.ID = ID;
             this.Body = Body;
@@ -24,6 +25,7 @@ namespace BlogAPI.Models
             this.OriginalPost = OriginalPost;
             this.Commenter = Commenter;
             this.ParentComment = ParentComment;
+            this.ChildComments = ChildComments;
         }
 
         public Comment ( string Body, Post OriginalPost, User Commenter, Comment ParentComment )
@@ -34,6 +36,7 @@ namespace BlogAPI.Models
             this.OriginalPost = OriginalPost;
             this.Commenter = Commenter;
             this.ParentComment = ParentComment;
+            this.ChildComments = new List<Comment>();
         }
 
         public Comment () {}
