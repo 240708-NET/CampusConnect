@@ -1,0 +1,12 @@
+8/5/2024 Meeting Notes
+
+-Daniel created models and started IRepository
+-Josh finished base of UserControllerTests.cs
+-Jae created GenericRepository.cs
+-Ibrahim continued front-end progress
+
+-Team members will continue making progress in their "fields":
+--Daniel on Entity framework and repository pattern (data persistence)
+--Josh on unit tests
+--Jae on API
+--Ibrahim on front-end
