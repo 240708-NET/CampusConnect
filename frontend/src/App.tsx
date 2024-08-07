@@ -4,6 +4,8 @@ import Navbar from './components/Navbar/Navbar'; // Import Navbar component
 import MainPage from './components/MainPage/MainPage'; // Import MainPage component
 import { PostProvider } from './context/PostContext'; // Import context provider
 import './styles.css'; // Import global styles
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 // Main App component
 const App: React.FC = () => {

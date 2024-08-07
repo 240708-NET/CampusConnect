@@ -13,11 +13,13 @@ interface PostCardProps {
 // PostCard component
 const PostCard: React.FC<PostCardProps> = ({ post }) => {
   return (
-    <div className="post-card">
-      <h3>{post.title}</h3> {/* Display post title */}
-      <p>{post.content}</p> {/* Display post content */}
+    <div className="card mb-3">
+      <div className="card-body">
+        <h5 className="card-title">{post.title}</h5>
+        <p className="card-text">{post.content}</p>
+      </div>
     </div>
   );
-}
+};
 
 export default PostCard;
