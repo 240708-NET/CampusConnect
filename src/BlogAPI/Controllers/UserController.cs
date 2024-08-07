@@ -1,7 +1,6 @@
 namespace BlogAPI.Controllers;
 
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using BlogAPI.Models;
 using BlogAPI.Repositories;
 
@@ -21,8 +20,7 @@ public class UserController(IUserRepository repository) : ControllerBase
     public async Task<ActionResult<User>> GetUser(int id)
     {
         var user = await repository.GetById(id);
-        if (user == null) return NotFound();
-        return user;
+        return user == null ? NotFound() : user;
     }
 
     // POST: api/User
@@ -38,26 +36,13 @@ public class UserController(IUserRepository repository) : ControllerBase
     public async ValueTask<IActionResult> PutUser(int id, User user)
     {
         if (id != user.ID) return BadRequest();
-        try
-        {
-            await repository.Update(user);
-        }
-        catch (DbUpdateConcurrencyException)
-        {
-            var targetUser = await repository.GetById(id);
-            if (targetUser == null) return NotFound();
-            throw;
-        }
-        return NoContent();
+        return await repository.Update(user) ? NoContent() : NotFound();
     }
 
     // DELETE: api/User/{id}
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteUser(int id)
     {
-        var user = await repository.GetById(id);
-        if (user == null) return NotFound();
-        await repository.Delete(user);
-        return NoContent();
+        return await repository.DeleteById(id) ? NoContent() : NotFound();
     }
 }

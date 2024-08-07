@@ -2,4 +2,4 @@ namespace BlogAPI.Repositories;
 
 using BlogAPI.Models;
 
-public interface ICommentRepository : IGenericRepository<User> { }
+public interface ICommentRepository : IGenericRepository<Comment> { }
