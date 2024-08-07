@@ -1,0 +1,9 @@
+8/7/2024 Meeting Notes
+
+-Ibrahim: Pushed front-end progress.
+-Jae: Pushed API progress.
+
+-Authentication: Needs to be added.
+-Josh: Will work on unit tests for all completed controllers thus far.
+-Jae: Will fix API issues.
+-Ibrahim and Daniel: Will continue working on the front-end and now also focus on connecting it to the back-end.
