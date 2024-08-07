@@ -1,17 +1,32 @@
 // src/components/Navbar/Navbar.tsx
 import React from 'react';
-import './Navbar.css'; // Import the CSS file for styling
+import './Navbar.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const Navbar: React.FC = () => {
   return (
-    <nav className="navbar">
-      <div className="navbar-brand">CampusConnect</div>
-      <ul className="navbar-nav">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Posts</a></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Logout</a></li>
-      </ul>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a className="navbar-brand" href="#">CampusConnect</a>
+      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
+      </button>
+      <div className="collapse navbar-collapse" id="navbarNav">
+        <ul className="navbar-nav ml-auto">
+          <li className="nav-item">
+            <a className="nav-link" href="#">Home</a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#">Posts</a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#">Profile</a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#">Logout</a>
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 };
