@@ -18,10 +18,11 @@ const PostList: React.FC = () => {
   }, [fetchPosts]); // Dependency array ensures effect runs when fetchPosts changes
 
   return (
-    <div className="post-list">
-      {/* Map through posts and render a PostCard for each */}
+    <div className="post-list row">
       {posts.map((post) => (
-        <PostCard key={post.id} post={post} />
+        <div className="col-md-4 mb-3" key={post.id}>
+          <PostCard post={post} />
+        </div>
       ))}
     </div>
   );
