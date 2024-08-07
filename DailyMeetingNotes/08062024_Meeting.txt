@@ -1,0 +1,9 @@
+8/6/2024 Meeting Notes
+
+-Name of project is now CampusConnect
+-Talking about GitHub branch practices
+
+-Ibrahim will have some front-end progress with React tonight
+-Jae will push his API progress, potentially finished
+-Daniel will check on models with one of instructors 
+-Josh will work on unit tests once API progress is pushed
