@@ -2,21 +2,21 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BlogAPI.Models
 {
-    
-    public class Comment
+
+    public class Comment : IIdentified
     {
         [Key]
         public int ID { get; set; }
         public required string Body { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime EditedAt { get; set; }
-        public Post OriginalPost { get; set; }
-        public User Commenter { get; set; }
-        public Comment ParentComment { get; set; }
-        public List<Comment> ChildComments { get; set; }
+        public required Post OriginalPost { get; set; }
+        public required User Commenter { get; set; }
+        public required Comment ParentComment { get; set; }
+        public List<Comment> ChildComments { get; set; } = [];
 
 
-        public Comment ( int ID, string Body, DateTime CreatedAt, DateTime EditedAt, Post OriginalPost, User Commenter, Comment ParentComment, List<Comment> ChildComments )
+        public Comment(int ID, string Body, DateTime CreatedAt, DateTime EditedAt, Post OriginalPost, User Commenter, Comment ParentComment, List<Comment> ChildComments)
         {
             this.ID = ID;
             this.Body = Body;
@@ -28,7 +28,7 @@ namespace BlogAPI.Models
             this.ChildComments = ChildComments;
         }
 
-        public Comment ( string Body, Post OriginalPost, User Commenter, Comment ParentComment )
+        public Comment(string Body, Post OriginalPost, User Commenter, Comment ParentComment)
         {
             this.Body = Body;
             this.CreatedAt = DateTime.Now;
@@ -39,6 +39,6 @@ namespace BlogAPI.Models
             this.ChildComments = new List<Comment>();
         }
 
-        public Comment () {}
+        public Comment() { }
     }
 }

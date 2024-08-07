@@ -1,7 +1,6 @@
-using Microsoft.EntityFrameworkCore;
-using BlogAPI.Models;
+namespace BlogAPI.Models;
 
-namespace BlogApi.Models;
+using Microsoft.EntityFrameworkCore;
 
 public class BlogContext(DbContextOptions<BlogContext> options) : DbContext(options)
 {

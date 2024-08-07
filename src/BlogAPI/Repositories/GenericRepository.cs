@@ -3,7 +3,8 @@ namespace BlogAPI.Repositories;
 using BlogAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
-public class GenericRepository<TEntity>(DbContext context) : IGenericRepository<TEntity> where TEntity : class
+public class GenericRepository<TEntity>(DbContext context) : IGenericRepository<TEntity>
+where TEntity : class, IIdentified
 {
     protected DbContext Context = context;
     protected DbSet<TEntity> EntitySet = context.Set<TEntity>();
@@ -20,19 +21,31 @@ public class GenericRepository<TEntity>(DbContext context) : IGenericRepository<
 
     public virtual async Task Insert(TEntity entity)
     {
-        await EntitySet.AddAsync(entity);
+        await Context.AddAsync(entity);
         await Context.SaveChangesAsync();
     }
 
-    public virtual async Task Update(TEntity entity)
+    public virtual async Task<bool> Update(TEntity entity)
     {
-        Context.Entry(entity).State = EntityState.Modified;
-        await Context.SaveChangesAsync();
+        Context.Update(entity);
+        try
+        {
+            await Context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!EntitySet.Any(e => e.ID == entity.ID)) return false;
+            throw;
+        }
+        return true;
     }
 
-    public virtual async Task Delete(TEntity entity)
+    public virtual async Task<bool> DeleteById(object id)
     {
-        EntitySet.Remove(entity);
+        var entity = await EntitySet.FindAsync(id);
+        if (entity == null) return false;
+        Context.Remove(entity);
         await Context.SaveChangesAsync();
+        return true;
     }
 }

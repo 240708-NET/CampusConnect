@@ -2,8 +2,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BlogAPI.Models
 {
-    
-    public class Post
+
+    public class Post : IIdentified
     {
         [Key]
         public int ID { get; set; }
@@ -11,11 +11,11 @@ namespace BlogAPI.Models
         public required string Body { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime EditedAt { get; set; }
-        public Category PostCategory { get; set; }
-        public User Poster { get; set; }
-        public List<Tag> Tags { get; set; }
+        public required Category PostCategory { get; set; }
+        public required User Poster { get; set; }
+        public List<Tag> Tags { get; set; } = [];
 
-        public Post ( int ID, string Topic, string Body, DateTime CreatedAt, DateTime EditedAt, Category Category, User Poster, List<Tag> Tags )
+        public Post(int ID, string Topic, string Body, DateTime CreatedAt, DateTime EditedAt, Category Category, User Poster, List<Tag> Tags)
         {
             this.ID = ID;
             this.Topic = Topic;
@@ -27,7 +27,7 @@ namespace BlogAPI.Models
             this.Tags = Tags;
         }
 
-        public Post ( string Topic, string Body, Category Category, User Poster, List<Tag> Tags )
+        public Post(string Topic, string Body, Category Category, User Poster, List<Tag> Tags)
         {
             this.Topic = Topic;
             this.Body = Body;
@@ -38,6 +38,6 @@ namespace BlogAPI.Models
             this.Tags = Tags;
         }
 
-        public Post () {}
+        public Post() { }
     }
 }
