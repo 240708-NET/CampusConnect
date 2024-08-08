@@ -11,12 +11,12 @@ where TEntity : class, IIdentified
 
     public virtual Task<List<TEntity>> Get()
     {
-        return EntitySet.ToListAsync();
+        return EntitySet.AsNoTracking().ToListAsync();
     }
 
-    public virtual ValueTask<TEntity?> GetById(object id)
+    public virtual async Task<TEntity?> GetById(int id)
     {
-        return EntitySet.FindAsync(id);
+        return await EntitySet.AsNoTracking().SingleOrDefaultAsync(e => e.ID == id);
     }
 
     public virtual async Task Insert(TEntity entity)

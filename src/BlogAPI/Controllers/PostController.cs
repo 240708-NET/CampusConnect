@@ -44,7 +44,12 @@ public class PostController(IPostRepository repository) : ControllerBase
     public async ValueTask<IActionResult> PutPost(int id, Post post)
     {
         if (id != post.ID) return BadRequest();
-        return await repository.Update(post) ? NoContent() : NotFound();
+        var originalPost = await repository.GetById(id);
+        if (originalPost is null) return NotFound();
+        post.CreatedAt = originalPost.CreatedAt;
+        post.EditedAt = DateTime.Now;
+        await repository.Update(post);
+        return NoContent();
     }
 
     // DELETE: api/Post/{id}

@@ -44,7 +44,12 @@ public class CommentController(ICommentRepository repository) : ControllerBase
     public async ValueTask<IActionResult> PutComment(int id, Comment comment)
     {
         if (id != comment.ID) return BadRequest();
-        return await repository.Update(comment) ? NoContent() : NotFound();
+        var originalComment = await repository.GetById(id);
+        if (originalComment is null) return NotFound();
+        comment.CreatedAt = originalComment.CreatedAt;
+        comment.EditedAt = DateTime.Now;
+        await repository.Update(comment);
+        return NoContent();
     }
 
     // DELETE: api/Comment/{id}
