@@ -10,7 +10,7 @@ public class CategoryController(ICategoryRepository repository) : ControllerBase
 {
     // GET: api/Category
     [HttpGet]
-    public async Task<ActionResult<List<Category>>> GetCategorys()
+    public async Task<ActionResult<List<Category>>> GetCategories()
     {
         return await repository.Get();
     }
