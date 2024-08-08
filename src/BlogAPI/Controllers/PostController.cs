@@ -19,24 +19,31 @@ public class PostController(IPostRepository repository) : ControllerBase
     [HttpGet("{id}")]
     public async Task<ActionResult<Post>> GetPost(int id)
     {
-        var comment = await repository.GetById(id);
-        return comment == null ? NotFound() : comment;
+        var post = await repository.GetById(id);
+        return post == null ? NotFound() : post;
+    }
+
+    // GET: api/Post/{id}/Tags
+    [HttpGet("{id}/Tags")]
+    public async Task<ActionResult<List<Tag>>> GetPostTags(int id)
+    {
+        return await repository.GetTagsById(id);
     }
 
     // POST: api/Post
     [HttpPost]
-    public async Task<ActionResult<Post>> PostPost(Post comment)
+    public async Task<ActionResult<Post>> PostPost(Post post)
     {
-        await repository.Insert(comment);
-        return CreatedAtAction(nameof(GetPost), new { id = comment.ID }, comment);
+        await repository.Insert(post);
+        return CreatedAtAction(nameof(GetPost), new { id = post.ID }, post);
     }
 
     // PUT: api/Post/{id}
     [HttpPut("{id}")]
-    public async ValueTask<IActionResult> PutPost(int id, Post comment)
+    public async ValueTask<IActionResult> PutPost(int id, Post post)
     {
-        if (id != comment.ID) return BadRequest();
-        return await repository.Update(comment) ? NoContent() : NotFound();
+        if (id != post.ID) return BadRequest();
+        return await repository.Update(post) ? NoContent() : NotFound();
     }
 
     // DELETE: api/Post/{id}
