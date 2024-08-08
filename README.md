@@ -1,5 +1,5 @@
-# Blog Platform
-This Blog Platform is a feature-rich system designed to facilitate blog creation, user interaction, and profile management. The platform balances ease of use with comprehensive administrative tools, providing a smooth experience for both casual bloggers and site administrators.
+# CampusConnect
+CampusConnect is a platform designed to facilitate blog creation, user interaction, and profile management. The platform balances ease of use with comprehensive administrative tools, providing a smooth experience for both casual bloggers and site administrators.
 
 * Key functionalities:
     + User Management: Users can create accounts and log in to access features.
