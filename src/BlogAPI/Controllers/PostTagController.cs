@@ -20,7 +20,7 @@ public class PostTagController(IPostTagRepository repository) : ControllerBase
     public async Task<ActionResult<PostTag>> GetPostTag(int id)
     {
         var postTag = await repository.GetById(id);
-        return postTag == null ? NotFound() : postTag;
+        return postTag is null ? NotFound() : postTag;
     }
 
     // POST: api/PostTag

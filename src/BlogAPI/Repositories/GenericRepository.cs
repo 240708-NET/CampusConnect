@@ -43,7 +43,7 @@ where TEntity : class, IIdentified
     public virtual async Task<bool> DeleteById(object id)
     {
         var entity = await EntitySet.FindAsync(id);
-        if (entity == null) return false;
+        if (entity is null) return false;
         Context.Remove(entity);
         await Context.SaveChangesAsync();
         return true;

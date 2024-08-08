@@ -20,14 +20,15 @@ public class PostController(IPostRepository repository) : ControllerBase
     public async Task<ActionResult<Post>> GetPost(int id)
     {
         var post = await repository.GetById(id);
-        return post == null ? NotFound() : post;
+        return post is null ? NotFound() : post;
     }
 
     // GET: api/Post/{id}/Tags
     [HttpGet("{id}/Tags")]
     public async Task<ActionResult<List<Tag>>> GetPostTags(int id)
     {
-        return await repository.GetTagsById(id);
+        var tags = await repository.GetTagsByPostID(id);
+        return tags is null ? NotFound() : tags;
     }
 
     // POST: api/Post

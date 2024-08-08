@@ -20,7 +20,15 @@ public class CategoryController(ICategoryRepository repository) : ControllerBase
     public async Task<ActionResult<Category>> GetCategory(int id)
     {
         var category = await repository.GetById(id);
-        return category == null ? NotFound() : category;
+        return category is null ? NotFound() : category;
+    }
+
+    // GET: api/Category/{id}/Posts
+    [HttpGet("{id}/Posts")]
+    public async Task<ActionResult<List<Post>>> GetCategoryPosts(int id)
+    {
+        var posts = await repository.GetPostsByCategoryID(id);
+        return posts is null ? NotFound() : posts;
     }
 
     // POST: api/Category

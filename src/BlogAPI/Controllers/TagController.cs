@@ -20,7 +20,15 @@ public class TagController(ITagRepository repository) : ControllerBase
     public async Task<ActionResult<Tag>> GetTag(int id)
     {
         var tag = await repository.GetById(id);
-        return tag == null ? NotFound() : tag;
+        return tag is null ? NotFound() : tag;
+    }
+
+    // GET: api/Tag/{id}/Posts
+    [HttpGet("{id}/Posts")]
+    public async Task<ActionResult<List<Post>>> GetTagPosts(int id)
+    {
+        var posts = await repository.GetPostsByTagID(id);
+        return posts is null ? NotFound() : posts;
     }
 
     // POST: api/Tag
