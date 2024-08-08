@@ -7,9 +7,10 @@ builder.Services.AddDbContext<BlogContext>(opt => opt.UseInMemoryDatabase("BlogP
 builder.Services.AddScoped<ICategoryRepository>(sp => new CategoryRepository(sp.GetRequiredService<BlogContext>()));
 builder.Services.AddScoped<ICommentRepository>(sp => new CommentRepository(sp.GetRequiredService<BlogContext>()));
 builder.Services.AddScoped<IPostRepository>(sp => new PostRepository(sp.GetRequiredService<BlogContext>()));
+builder.Services.AddScoped<IPostTagRepository>(sp => new PostTagRepository(sp.GetRequiredService<BlogContext>()));
 builder.Services.AddScoped<ITagRepository>(sp => new TagRepository(sp.GetRequiredService<BlogContext>()));
 builder.Services.AddScoped<IUserRepository>(sp => new UserRepository(sp.GetRequiredService<BlogContext>()));
-builder.Services.AddControllers();
+builder.Services.AddControllers(opt => opt.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();

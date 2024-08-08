@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace BlogAPI.Models
 {
@@ -7,13 +8,24 @@ namespace BlogAPI.Models
     {
         [Key]
         public int ID { get; set; }
+        [Required]
+        public int OriginalPostID { get; set; }
+        public int? ParentCommentID { get; set; }
+        [Required]
+        public int CommenterID { get; set; }
+        [Required]
         public required string Body { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime EditedAt { get; set; }
-        public required Post OriginalPost { get; set; }
-        public required User Commenter { get; set; }
-        public required Comment ParentComment { get; set; }
-        public List<Comment> ChildComments { get; set; } = [];
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime EditedAt { get; set; } = DateTime.Now;
+
+        [JsonIgnore]
+        public Post OriginalPost { get; set; } = null!;
+        [JsonIgnore]
+        public Comment? ParentComment { get; set; }
+        [JsonIgnore]
+        public User Commenter { get; set; } = null!;
+        [JsonIgnore]
+        public ICollection<Comment> ChildComments { get; } = [];
 
 
         public Comment(int ID, string Body, DateTime CreatedAt, DateTime EditedAt, Post OriginalPost, User Commenter, Comment ParentComment, List<Comment> ChildComments)
