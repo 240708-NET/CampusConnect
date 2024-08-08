@@ -20,7 +20,15 @@ public class CommentController(ICommentRepository repository) : ControllerBase
     public async Task<ActionResult<Comment>> GetComment(int id)
     {
         var comment = await repository.GetById(id);
-        return comment == null ? NotFound() : comment;
+        return comment is null ? NotFound() : comment;
+    }
+
+    // GET: api/Comment/{id}/ChildComments
+    [HttpGet("{id}/ChildComments")]
+    public async Task<ActionResult<List<Comment>>> GetChildComments(int id)
+    {
+        var comments = await repository.GetChildCommentsByParentID(id);
+        return comments is null ? NotFound() : comments;
     }
 
     // POST: api/Comment
@@ -36,7 +44,12 @@ public class CommentController(ICommentRepository repository) : ControllerBase
     public async ValueTask<IActionResult> PutComment(int id, Comment comment)
     {
         if (id != comment.ID) return BadRequest();
-        return await repository.Update(comment) ? NoContent() : NotFound();
+        var originalComment = await repository.GetById(id);
+        if (originalComment is null) return NotFound();
+        comment.CreatedAt = originalComment.CreatedAt;
+        comment.EditedAt = DateTime.Now;
+        await repository.Update(comment);
+        return NoContent();
     }
 
     // DELETE: api/Comment/{id}

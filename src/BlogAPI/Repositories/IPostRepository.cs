@@ -4,5 +4,5 @@ using BlogAPI.Models;
 
 public interface IPostRepository : IGenericRepository<Post>
 {
-    Task<List<Tag>> GetTagsById(int id);
+    Task<List<Tag>?> GetTagsByPostID(int postID);
 }
