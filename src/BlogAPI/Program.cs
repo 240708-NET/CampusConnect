@@ -6,17 +6,17 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
 {
-        options.AddPolicy("AllowAll",
-        builder =>
-        {
-            builder.AllowAnyOrigin();
-            builder.AllowAnyMethod();
-            builder.AllowAnyHeader(); 
-        });
+    options.AddPolicy("AllowAll",
+    builder =>
+    {
+        builder.AllowAnyOrigin();
+        builder.AllowAnyMethod();
+        builder.AllowAnyHeader();
+    });
 });
 
 // Configure Entity Framework
-builder.Services.AddDbContext<BlogContext>(opt => opt.UseInMemoryDatabase("BlogPlatform"));
+builder.Services.AddDbContext<BlogContext>(opt => opt.UseSqlServer(builder.Configuration["ConnectionString"]));
 
 // Configure Dependecy Injection for Repositories
 builder.Services.AddScoped<ICategoryRepository>(sp => new CategoryRepository(sp.GetRequiredService<BlogContext>()));
