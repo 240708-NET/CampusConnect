@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { PostContext } from '../../context/PostContext';
+import { PostContext } from '../context/PostContext';
 import PostCard from './PostCard';
 
 const PostList: React.FC = () => {
@@ -12,10 +12,11 @@ const PostList: React.FC = () => {
 
   const { posts, fetchPosts } = context;
 
-  // Fetch posts when the component mounts
-  useEffect(() => {
-    fetchPosts(); // Fetch posts as soon as the component is rendered
-  }, [fetchPosts]); // Dependency array ensures effect runs when fetchPosts changes
+  // // Fetch posts when the component mounts
+  // useEffect(() => {
+  //   fetchPosts(); // Fetch posts as soon as the component is rendered
+  // }, [fetchPosts]); // Dependency array ensures effect runs when fetchPosts changes
+  // fetchPosts();
 
   return (
     <div className="post-list row">
