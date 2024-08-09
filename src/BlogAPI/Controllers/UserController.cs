@@ -20,7 +20,23 @@ public class UserController(IUserRepository repository) : ControllerBase
     public async Task<ActionResult<User>> GetUser(int id)
     {
         var user = await repository.GetById(id);
-        return user == null ? NotFound() : user;
+        return user is null ? NotFound() : user;
+    }
+
+    // GET: api/User/{id}/Posts
+    [HttpGet("{id}/Posts")]
+    public async Task<ActionResult<List<Post>>> GetUserPosts(int id)
+    {
+        var posts = await repository.GetPostsByUserID(id);
+        return posts is null ? NotFound() : posts;
+    }
+
+    // GET: api/User/{id}/Comments
+    [HttpGet("{id}/Comments")]
+    public async Task<ActionResult<List<Comment>>> GetUserComments(int id)
+    {
+        var comments = await repository.GetCommentsByUserID(id);
+        return comments is null ? NotFound() : comments;
     }
 
     // POST: api/User

@@ -1,8 +1,11 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace BlogAPI.Models;
 
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
+[ExcludeFromCodeCoverage]
 public class PostTag : IIdentified
 {
     public int ID { get; set; }

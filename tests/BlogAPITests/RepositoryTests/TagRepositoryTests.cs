@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;         //For DbContextOptions, InMemoryDbContextOptionsBuilder
-using BlogAPI.Models;                        //For BlogContext, Tag
+using BlogAPI.Models;                        //For BlogContext, Tag, Post, Category, User, PostTag
 using BlogAPI.Repositories;                  //For TagRepository
 
 namespace BlogAPITests;
@@ -91,13 +91,15 @@ public class TagRepositoryTests
         //ARRANGE
         //Creating tag then adding to context
         using var context = CreateContext();
-        context.Tags.Add(new Tag { ID = 1, Name = "Tag1" });
+        var tag = new Tag { ID = 1, Name = "Tag1" };
+        context.Tags.Add(tag);
         await context.SaveChangesAsync();
+
         var repository = new TagRepository(context);
 
         //ACT
-        //Getting tag by id, changing name, calling Update(TEntity entity), then saving changes
-        var tag = await repository.GetById(1);
+        //Getting tag by id, detaching it, changing name, calling Update(TEntity entity), then saving changes
+        context.Entry(tag).State = EntityState.Detached;
         tag.Name = "UpdatedTag";
         await repository.Update(tag);
         await context.SaveChangesAsync();
@@ -127,5 +129,57 @@ public class TagRepositoryTests
         //Checking if context is empty as we expect
         var tags = await context.Tags.ToListAsync();
         Assert.Empty(tags);
+    }
+
+    [Fact]
+    public async Task GetPostsByTagID_ReturnsPostsForTag()
+    {
+        //ARRANGE
+        //Creating a tag and posts, then adding to context
+        using var context = CreateContext();
+        var tag = new Tag { ID = 1, Name = "Tag1" };
+        context.Tags.Add(tag);
+        await context.SaveChangesAsync();
+
+        var post1 = new Post 
+        { 
+            ID = 1, 
+            Topic = "Post1", 
+            Body = "Body1", 
+            CreatedAt = DateTime.Now, 
+            EditedAt = DateTime.Now, 
+            Category = new Category { Name = "Category1" }, 
+            Poster = new User { Username = "User1", Password = "Password1" } 
+        };
+        
+        var post2 = new Post 
+        { 
+            ID = 2, 
+            Topic = "Post2", 
+            Body = "Body2", 
+            CreatedAt = DateTime.Now, 
+            EditedAt = DateTime.Now, 
+            Category = new Category { Name = "Category2" }, 
+            Poster = new User { Username = "User2", Password = "Password2" } 
+        };
+        context.Posts.AddRange(post1, post2);
+
+        context.PostTags.AddRange(
+            new PostTag { PostID = post1.ID, TagID = tag.ID },
+            new PostTag { PostID = post2.ID, TagID = tag.ID }
+        );
+        await context.SaveChangesAsync();
+        var repository = new TagRepository(context);
+
+        //ACT
+        //Calling GetPostsByTagID(int tagID) method
+        var posts = await repository.GetPostsByTagID(tag.ID);
+
+        //ASSERT
+        //Verifying that there are 2 posts and they are associated with the tag
+        Assert.NotNull(posts);
+        Assert.Equal(2, posts.Count);
+        Assert.Contains(posts, p => p.Topic == "Post1");
+        Assert.Contains(posts, p => p.Topic == "Post2");
     }
 }

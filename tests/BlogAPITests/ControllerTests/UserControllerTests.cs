@@ -124,27 +124,23 @@ public class UserControllerTests
         _mockRepository.Verify(repo => repo.Update(updatedUser), Times.Once);
     }
 
-    [Theory]
-    [InlineData(1)]
-    [InlineData(2)]
-    public async Task DeleteUser_DeletesExistingUser(int id)
-    {
-        //ARRANGE
-        //Creating a User object
-        User existingUser = new User { ID = id, Username = $"User{id}", Password = $"Password{id}" };
+        [Theory]
+        [InlineData(1)]
+        [InlineData(2)]
+        public async Task DeleteUser_DeletesExistingUser(int id)
+        {
+            //ARRANGE
+            //Configuring behavior of _mockRepository to return true indicating successful delete
+            _mockRepository.Setup(repo => repo.DeleteById(id)).ReturnsAsync(true);
 
-        //Configuring behavior of _mockRepository. Return existingUser asynchronously and true indicating successful delete
-        _mockRepository.Setup(repo => repo.GetById(id)).ReturnsAsync(existingUser);
-        _mockRepository.Setup(repo => repo.DeleteById(id)).ReturnsAsync(true);
+            //ACT
+            //Calling DeleteUser(int id) method
+            var result = await _controller.DeleteUser(id);
 
-        //ACT
-        //Calling DeleteUser(int id) method
-        var result = await _controller.DeleteUser(id);
-
-        //ASSERT
-        //Verifying that result is of type NoContentResult
-        Assert.IsType<NoContentResult>(result);
-        //Verifying that the DeleteById method was called exactly once
-        _mockRepository.Verify(repo => repo.DeleteById(id), Times.Once);
-    }
+            //ASSERT
+            //Verifying that result is of type NoContentResult
+            Assert.IsType<NoContentResult>(result);
+            //Verifying that the DeleteById method was called exactly once
+            _mockRepository.Verify(repo => repo.DeleteById(id), Times.Once);
+        }
 }

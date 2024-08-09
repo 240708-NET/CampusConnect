@@ -1,0 +1,11 @@
+8/8/2024 Meeting Notes
+
+-Josh pushed his progress on unit testing
+-Jae added some FK's to models
+-Daniel pushed progress on user profiles on front-end on his branch
+-Ibrahim pushed his progress on front-end
+
+-Josh will finish unit testing, and do all non-functional requirements except wireframe diagram and API endpoint documentation
+-Ibrahim or Daniel will do wireframe, and finish front-end
+-Jae will finish back-end
+-Everyone except Josh will finish "actual" functionality

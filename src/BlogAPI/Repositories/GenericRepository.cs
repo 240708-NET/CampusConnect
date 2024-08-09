@@ -11,12 +11,12 @@ where TEntity : class, IIdentified
 
     public virtual Task<List<TEntity>> Get()
     {
-        return EntitySet.ToListAsync();
+        return EntitySet.AsNoTracking().ToListAsync();
     }
 
-    public virtual ValueTask<TEntity?> GetById(object id)
+    public virtual async Task<TEntity?> GetById(int id)
     {
-        return EntitySet.FindAsync(id);
+        return await EntitySet.AsNoTracking().SingleOrDefaultAsync(e => e.ID == id);
     }
 
     public virtual async Task Insert(TEntity entity)
@@ -43,7 +43,7 @@ where TEntity : class, IIdentified
     public virtual async Task<bool> DeleteById(object id)
     {
         var entity = await EntitySet.FindAsync(id);
-        if (entity == null) return false;
+        if (entity is null) return false;
         Context.Remove(entity);
         await Context.SaveChangesAsync();
         return true;

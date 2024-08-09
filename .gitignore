@@ -1,4 +1,5 @@
 bin
 obj
-coverage-report
+CoverageReport
 coverage.opencover.xml
+coverage.runsettings

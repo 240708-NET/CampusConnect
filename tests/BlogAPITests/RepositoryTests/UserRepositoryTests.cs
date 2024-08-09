@@ -1,6 +1,6 @@
-using Microsoft.EntityFrameworkCore;         // For DbContextOptions, InMemoryDbContextOptionsBuilder
-using BlogAPI.Models;                        // For BlogContext, User
-using BlogAPI.Repositories;                  // For UserRepository
+using Microsoft.EntityFrameworkCore;         //For DbContextOptions, InMemoryDbContextOptionsBuilder
+using BlogAPI.Models;                        //For BlogContext, User, Post, Comment
+using BlogAPI.Repositories;                  //For UserRepository
 
 namespace BlogAPITests;
 
@@ -91,13 +91,20 @@ public class UserRepositoryTests
         //ARRANGE
         //Creating user then adding to context
         using var context = CreateContext();
-        context.Users.Add(new User { ID = 1, Username = "User1", Password = "Password1" });
+        var user = new User 
+        { 
+            ID = 1, 
+            Username = "User1", 
+            Password = "Password1"
+        };
+        context.Users.Add(user);
         await context.SaveChangesAsync();
+
         var repository = new UserRepository(context);
 
         //ACT
-        //Getting user by id, changing username, calling Update(TEntity entity), then saving changes
-        var user = await repository.GetById(1);
+        //Getting user by id, detaching it, changing username, calling Update(TEntity entity), then saving changes
+        context.Entry(user).State = EntityState.Detached;
         user.Username = "UpdatedUser";
         await repository.Update(user);
         await context.SaveChangesAsync();
@@ -127,5 +134,55 @@ public class UserRepositoryTests
         //Checking if context is empty as we expect
         var users = await context.Users.ToListAsync();
         Assert.Empty(users);
+    }
+
+    [Fact]
+    public async Task GetPostsByUserID_ReturnsPostsForUser()
+    {
+        //ARRANGE
+        //Creating a user and posts, then adding to context
+        using var context = CreateContext();
+        var user = new User { ID = 1, Username = "User1", Password = "Password1" };
+        context.Users.Add(user);
+        context.Posts.AddRange(
+            new Post { ID = 1, PosterID = 1, Topic = "Topic1", Body = "Body1" },
+            new Post { ID = 2, PosterID = 1, Topic = "Topic2", Body = "Body2" }
+        );
+        await context.SaveChangesAsync();
+        var repository = new UserRepository(context);
+
+        //ACT
+        //Calling GetPostsByUserID(int userID) method
+        var posts = await repository.GetPostsByUserID(1);
+
+        //ASSERT
+        //Verifying that there are 2 posts and they belong to the user
+        Assert.NotNull(posts);
+        Assert.Equal(2, posts.Count);
+    }
+
+    [Fact]
+    public async Task GetCommentsByUserID_ReturnsCommentsForUser()
+    {
+        //ARRANGE
+        //Creating a user and comments, then adding to context
+        using var context = CreateContext();
+        var user = new User { ID = 1, Username = "User1", Password = "Password1" };
+        context.Users.Add(user);
+        context.Comments.AddRange(
+            new Comment { ID = 1, CommenterID = 1, Body = "Body1" },
+            new Comment { ID = 2, CommenterID = 1, Body = "Body2" }
+        );
+        await context.SaveChangesAsync();
+        var repository = new UserRepository(context);
+
+        //ACT
+        //Calling GetCommentsByUserID(int userID) method
+        var comments = await repository.GetCommentsByUserID(1);
+
+        //ASSERT
+        //Verifying that there are 2 comments and they belong to the user
+        Assert.NotNull(comments);
+        Assert.Equal(2, comments.Count);
     }
 }

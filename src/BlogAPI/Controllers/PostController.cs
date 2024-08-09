@@ -20,14 +20,15 @@ public class PostController(IPostRepository repository) : ControllerBase
     public async Task<ActionResult<Post>> GetPost(int id)
     {
         var post = await repository.GetById(id);
-        return post == null ? NotFound() : post;
+        return post is null ? NotFound() : post;
     }
 
     // GET: api/Post/{id}/Tags
     [HttpGet("{id}/Tags")]
     public async Task<ActionResult<List<Tag>>> GetPostTags(int id)
     {
-        return await repository.GetTagsById(id);
+        var tags = await repository.GetTagsByPostID(id);
+        return tags is null ? NotFound() : tags;
     }
 
     // POST: api/Post
@@ -43,7 +44,12 @@ public class PostController(IPostRepository repository) : ControllerBase
     public async ValueTask<IActionResult> PutPost(int id, Post post)
     {
         if (id != post.ID) return BadRequest();
-        return await repository.Update(post) ? NoContent() : NotFound();
+        var originalPost = await repository.GetById(id);
+        if (originalPost is null) return NotFound();
+        post.CreatedAt = originalPost.CreatedAt;
+        post.EditedAt = DateTime.Now;
+        await repository.Update(post);
+        return NoContent();
     }
 
     // DELETE: api/Post/{id}

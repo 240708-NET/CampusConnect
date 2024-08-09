@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;         //For DbContextOptions, InMemoryDbContextOptionsBuilder
-using BlogAPI.Models;                        //For BlogContext, Comment
+using BlogAPI.Models;                        //For BlogContext, Comment, Post, Category, User
 using BlogAPI.Repositories;                  //For CommentRepository
 
 namespace BlogAPITests;
@@ -41,7 +41,7 @@ public class CommentRepositoryTests
                     Body = "Body1", 
                     CreatedAt = DateTime.Now, 
                     EditedAt = DateTime.Now, 
-                    PostCategory = new Category { Name = "Category1" }, 
+                    Category = new Category { Name = "Category1" }, 
                     Poster = new User { Username = "User1", Password = "Password1" } 
                 }, 
                 Commenter = new User { Username = "User1", Password = "Password1" }, 
@@ -58,7 +58,7 @@ public class CommentRepositoryTests
                     Body = "Body2", 
                     CreatedAt = DateTime.Now, 
                     EditedAt = DateTime.Now, 
-                    PostCategory = new Category { Name = "Category2" }, 
+                    Category = new Category { Name = "Category2" }, 
                     Poster = new User { Username = "User2", Password = "Password2" } 
                 }, 
                 Commenter = new User { Username = "User2", Password = "Password2" }, 
@@ -95,7 +95,7 @@ public class CommentRepositoryTests
                 Body = "Body1", 
                 CreatedAt = DateTime.Now, 
                 EditedAt = DateTime.Now, 
-                PostCategory = new Category { Name = "Category1" }, 
+                Category = new Category { Name = "Category1" }, 
                 Poster = new User { Username = "User1", Password = "Password1" } 
             }, 
             Commenter = new User { Username = "User1", Password = "Password1" }, 
@@ -133,7 +133,7 @@ public class CommentRepositoryTests
                 Body = "Body1", 
                 CreatedAt = DateTime.Now, 
                 EditedAt = DateTime.Now, 
-                PostCategory = new Category { Name = "Category1" }, 
+                Category = new Category { Name = "Category1" }, 
                 Poster = new User { Username = "User1", Password = "Password1" } 
             }, 
             Commenter = new User { Username = "User1", Password = "Password1" }, 
@@ -156,7 +156,7 @@ public class CommentRepositoryTests
         //ARRANGE
         //Creating comment then adding to context
         using var context = CreateContext();
-        context.Comments.Add(new Comment 
+        var comment = new Comment 
         { 
             ID = 1, 
             Body = "Comment1", 
@@ -168,18 +168,20 @@ public class CommentRepositoryTests
                 Body = "Body1", 
                 CreatedAt = DateTime.Now, 
                 EditedAt = DateTime.Now, 
-                PostCategory = new Category { Name = "Category1" }, 
+                Category = new Category { Name = "Category1" }, 
                 Poster = new User { Username = "User1", Password = "Password1" } 
             }, 
             Commenter = new User { Username = "User1", Password = "Password1" }, 
             ParentComment = null 
-        });
+        };
+        context.Comments.Add(comment);
         await context.SaveChangesAsync();
+
         var repository = new CommentRepository(context);
 
         //ACT
-        //Getting comment by id, changing body, calling Update(TEntity entity), then saving changes
-        var comment = await repository.GetById(1);
+        //Getting comment by id, detaching it, changing body, calling Update(TEntity entity), then saving changes
+        context.Entry(comment).State = EntityState.Detached;
         comment.Body = "UpdatedComment";
         await repository.Update(comment);
         await context.SaveChangesAsync();
@@ -208,7 +210,7 @@ public class CommentRepositoryTests
                 Body = "Body1", 
                 CreatedAt = DateTime.Now, 
                 EditedAt = DateTime.Now, 
-                PostCategory = new Category { Name = "Category1" }, 
+                Category = new Category { Name = "Category1" }, 
                 Poster = new User { Username = "User1", Password = "Password1" } 
             }, 
             Commenter = new User { Username = "User1", Password = "Password1" }, 
@@ -226,5 +228,70 @@ public class CommentRepositoryTests
         //Checking if context is empty as we expect
         var comments = await context.Comments.ToListAsync();
         Assert.Empty(comments);
+    }
+
+    [Fact]
+    public async Task GetChildCommentsByParentID_ReturnsChildComments()
+    {
+        //ARRANGE
+        //Creating a parent comment and child comments, then adding to context
+        using var context = CreateContext();
+    
+        var parentComment = new Comment 
+        { 
+            Body = "ParentComment", 
+            CreatedAt = DateTime.Now, 
+            EditedAt = DateTime.Now, 
+            OriginalPost = new Post 
+            { 
+                Topic = "Post1", 
+                Body = "Body1", 
+                CreatedAt = DateTime.Now, 
+                EditedAt = DateTime.Now, 
+                Category = new Category { Name = "Category1" }, 
+                Poster = new User { Username = "User1", Password = "Password1" } 
+            }, 
+            Commenter = new User { Username = "User1", Password = "Password1" }, 
+            ParentComment = null 
+        };
+        context.Comments.Add(parentComment);
+        await context.SaveChangesAsync();
+
+        //Use the tracked parentComment to avoid re-adding a new instance with the same ID
+        var childComment1 = new Comment 
+        { 
+            Body = "ChildComment1", 
+            CreatedAt = DateTime.Now, 
+            EditedAt = DateTime.Now, 
+            OriginalPost = parentComment.OriginalPost, 
+            Commenter = parentComment.Commenter, 
+            ParentComment = parentComment, 
+            ParentCommentID = parentComment.ID
+        };
+    
+        var childComment2 = new Comment 
+        { 
+            Body = "ChildComment2", 
+            CreatedAt = DateTime.Now, 
+            EditedAt = DateTime.Now, 
+            OriginalPost = parentComment.OriginalPost, 
+            Commenter = parentComment.Commenter, 
+            ParentComment = parentComment, 
+            ParentCommentID = parentComment.ID
+        };
+
+        context.Comments.AddRange(childComment1, childComment2);
+        await context.SaveChangesAsync();
+        var repository = new CommentRepository(context);
+
+        //ACT
+        //Calling GetChildCommentsByParentID(int parentID) method
+        var childComments = await repository.GetChildCommentsByParentID(parentComment.ID);
+
+        //ASSERT
+        //Verifying that there are 2 child comments and they are correctly associated with the parent comment
+        Assert.NotNull(childComments);
+        Assert.Equal(2, childComments.Count);
+        Assert.All(childComments, cc => Assert.Equal(parentComment.ID, cc.ParentCommentID));
     }
 }

@@ -1,0 +1,1386 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<coverage line-rate="0.6812" branch-rate="0.32049999999999995" version="1.9" timestamp="1723156491" lines-covered="156" lines-valid="229" branches-covered="25" branches-valid="78">
+  <sources>
+    <source>C:\Users\kuyan\240708-NET\P2\CampusConnect\src\BlogAPI\</source>
+  </sources>
+  <packages>
+    <package name="BlogAPI" line-rate="0.6812" branch-rate="0.32049999999999995" complexity="106">
+      <classes>
+        <class name="Program" filename="Program.cs" line-rate="0" branch-rate="0" complexity="2">
+          <methods>
+            <method name="&lt;Main&gt;$" signature="(System.String[])" line-rate="0" branch-rate="0" complexity="2">
+              <lines>
+                <line number="5" hits="0" branch="False" />
+                <line number="6" hits="0" branch="False" />
+                <line number="7" hits="0" branch="False" />
+                <line number="8" hits="0" branch="False" />
+                <line number="9" hits="0" branch="False" />
+                <line number="10" hits="0" branch="False" />
+                <line number="11" hits="0" branch="False" />
+                <line number="12" hits="0" branch="False" />
+                <line number="13" hits="0" branch="False" />
+                <line number="14" hits="0" branch="False" />
+                <line number="16" hits="0" branch="False" />
+                <line number="17" hits="0" branch="True" condition-coverage="0% (0/2)">
+                  <conditions>
+                    <condition number="386" type="jump" coverage="0%" />
+                  </conditions>
+                </line>
+                <line number="18" hits="0" branch="False" />
+                <line number="19" hits="0" branch="False" />
+                <line number="20" hits="0" branch="False" />
+                <line number="21" hits="0" branch="False" />
+                <line number="22" hits="0" branch="False" />
+                <line number="23" hits="0" branch="False" />
+                <line number="24" hits="0" branch="False" />
+                <line number="25" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="5" hits="0" branch="False" />
+            <line number="6" hits="0" branch="False" />
+            <line number="7" hits="0" branch="False" />
+            <line number="8" hits="0" branch="False" />
+            <line number="9" hits="0" branch="False" />
+            <line number="10" hits="0" branch="False" />
+            <line number="11" hits="0" branch="False" />
+            <line number="12" hits="0" branch="False" />
+            <line number="13" hits="0" branch="False" />
+            <line number="14" hits="0" branch="False" />
+            <line number="16" hits="0" branch="False" />
+            <line number="17" hits="0" branch="True" condition-coverage="0% (0/2)">
+              <conditions>
+                <condition number="386" type="jump" coverage="0%" />
+              </conditions>
+            </line>
+            <line number="18" hits="0" branch="False" />
+            <line number="19" hits="0" branch="False" />
+            <line number="20" hits="0" branch="False" />
+            <line number="21" hits="0" branch="False" />
+            <line number="22" hits="0" branch="False" />
+            <line number="23" hits="0" branch="False" />
+            <line number="24" hits="0" branch="False" />
+            <line number="25" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Repositories.CategoryRepository" filename="Repositories\CategoryRepository.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name=".ctor" signature="(BlogAPI.Models.BlogContext)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="6" hits="5" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="6" hits="5" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Repositories.CategoryRepository/&lt;GetPostsByCategoryID&gt;d__2" filename="Repositories\CategoryRepository.cs" line-rate="0" branch-rate="0" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0" branch-rate="0" complexity="2">
+              <lines>
+                <line number="9" hits="0" branch="False" />
+                <line number="10" hits="0" branch="True" condition-coverage="0% (0/2)">
+                  <conditions>
+                    <condition number="226" type="jump" coverage="0%" />
+                  </conditions>
+                </line>
+                <line number="11" hits="0" branch="False" />
+                <line number="12" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="9" hits="0" branch="False" />
+            <line number="10" hits="0" branch="True" condition-coverage="0% (0/2)">
+              <conditions>
+                <condition number="226" type="jump" coverage="0%" />
+              </conditions>
+            </line>
+            <line number="11" hits="0" branch="False" />
+            <line number="12" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Repositories.CommentRepository" filename="Repositories\CommentRepository.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name=".ctor" signature="(BlogAPI.Models.BlogContext)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="6" hits="5" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="6" hits="5" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Repositories.CommentRepository/&lt;GetChildCommentsByParentID&gt;d__2" filename="Repositories\CommentRepository.cs" line-rate="0" branch-rate="0" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0" branch-rate="0" complexity="2">
+              <lines>
+                <line number="9" hits="0" branch="False" />
+                <line number="10" hits="0" branch="True" condition-coverage="0% (0/2)">
+                  <conditions>
+                    <condition number="226" type="jump" coverage="0%" />
+                  </conditions>
+                </line>
+                <line number="11" hits="0" branch="False" />
+                <line number="12" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="9" hits="0" branch="False" />
+            <line number="10" hits="0" branch="True" condition-coverage="0% (0/2)">
+              <conditions>
+                <condition number="226" type="jump" coverage="0%" />
+              </conditions>
+            </line>
+            <line number="11" hits="0" branch="False" />
+            <line number="12" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Repositories.GenericRepository`1" filename="Repositories\GenericRepository.cs" line-rate="1" branch-rate="1" complexity="2">
+          <methods>
+            <method name="Get" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="13" hits="5" branch="False" />
+                <line number="14" hits="5" branch="False" />
+                <line number="15" hits="5" branch="False" />
+              </lines>
+            </method>
+            <method name=".ctor" signature="(Microsoft.EntityFrameworkCore.DbContext)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="6" hits="25" branch="False" />
+                <line number="9" hits="25" branch="False" />
+                <line number="10" hits="25" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="13" hits="5" branch="False" />
+            <line number="14" hits="5" branch="False" />
+            <line number="15" hits="5" branch="False" />
+            <line number="6" hits="25" branch="False" />
+            <line number="9" hits="25" branch="False" />
+            <line number="10" hits="25" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Repositories.GenericRepository`1/&lt;DeleteById&gt;d__7" filename="Repositories\GenericRepository.cs" line-rate="1" branch-rate="0.5" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="0.5" complexity="2">
+              <lines>
+                <line number="44" hits="5" branch="False" />
+                <line number="45" hits="5" branch="False" />
+                <line number="46" hits="5" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="198" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="47" hits="5" branch="False" />
+                <line number="48" hits="5" branch="False" />
+                <line number="49" hits="5" branch="False" />
+                <line number="50" hits="5" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="44" hits="5" branch="False" />
+            <line number="45" hits="5" branch="False" />
+            <line number="46" hits="5" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="198" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="47" hits="5" branch="False" />
+            <line number="48" hits="5" branch="False" />
+            <line number="49" hits="5" branch="False" />
+            <line number="50" hits="5" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Repositories.GenericRepository`1/&lt;GetById&gt;d__4" filename="Repositories\GenericRepository.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="18" hits="5" branch="False" />
+                <line number="19" hits="5" branch="False" />
+                <line number="20" hits="5" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="18" hits="5" branch="False" />
+            <line number="19" hits="5" branch="False" />
+            <line number="20" hits="5" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Repositories.GenericRepository`1/&lt;Insert&gt;d__5" filename="Repositories\GenericRepository.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="23" hits="5" branch="False" />
+                <line number="24" hits="5" branch="False" />
+                <line number="25" hits="5" branch="False" />
+                <line number="26" hits="5" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="23" hits="5" branch="False" />
+            <line number="24" hits="5" branch="False" />
+            <line number="25" hits="5" branch="False" />
+            <line number="26" hits="5" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Repositories.GenericRepository`1/&lt;Update&gt;d__6" filename="Repositories\GenericRepository.cs" line-rate="0.6363" branch-rate="0" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0.6363" branch-rate="0" complexity="2">
+              <lines>
+                <line number="29" hits="5" branch="False" />
+                <line number="30" hits="5" branch="False" />
+                <line number="32" hits="5" branch="False" />
+                <line number="33" hits="5" branch="False" />
+                <line number="34" hits="5" branch="False" />
+                <line number="35" hits="0" branch="False" />
+                <line number="36" hits="0" branch="False" />
+                <line number="37" hits="0" branch="True" condition-coverage="0% (0/2)">
+                  <conditions>
+                    <condition number="353" type="jump" coverage="0%" />
+                  </conditions>
+                </line>
+                <line number="38" hits="0" branch="False" />
+                <line number="40" hits="5" branch="False" />
+                <line number="41" hits="5" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="29" hits="5" branch="False" />
+            <line number="30" hits="5" branch="False" />
+            <line number="32" hits="5" branch="False" />
+            <line number="33" hits="5" branch="False" />
+            <line number="34" hits="5" branch="False" />
+            <line number="35" hits="0" branch="False" />
+            <line number="36" hits="0" branch="False" />
+            <line number="37" hits="0" branch="True" condition-coverage="0% (0/2)">
+              <conditions>
+                <condition number="353" type="jump" coverage="0%" />
+              </conditions>
+            </line>
+            <line number="38" hits="0" branch="False" />
+            <line number="40" hits="5" branch="False" />
+            <line number="41" hits="5" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Repositories.PostRepository" filename="Repositories\PostRepository.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name=".ctor" signature="(BlogAPI.Models.BlogContext)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="6" hits="5" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="6" hits="5" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Repositories.PostRepository/&lt;GetTagsByPostID&gt;d__2" filename="Repositories\PostRepository.cs" line-rate="0" branch-rate="0" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0" branch-rate="0" complexity="2">
+              <lines>
+                <line number="9" hits="0" branch="False" />
+                <line number="10" hits="0" branch="True" condition-coverage="0% (0/2)">
+                  <conditions>
+                    <condition number="226" type="jump" coverage="0%" />
+                  </conditions>
+                </line>
+                <line number="11" hits="0" branch="False" />
+                <line number="12" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="9" hits="0" branch="False" />
+            <line number="10" hits="0" branch="True" condition-coverage="0% (0/2)">
+              <conditions>
+                <condition number="226" type="jump" coverage="0%" />
+              </conditions>
+            </line>
+            <line number="11" hits="0" branch="False" />
+            <line number="12" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Repositories.PostTagRepository" filename="Repositories\PostTagRepository.cs" line-rate="0" branch-rate="1" complexity="1">
+          <methods>
+            <method name=".ctor" signature="(BlogAPI.Models.BlogContext)" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="5" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="5" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Repositories.TagRepository" filename="Repositories\TagRepository.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name=".ctor" signature="(BlogAPI.Models.BlogContext)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="6" hits="5" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="6" hits="5" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Repositories.TagRepository/&lt;GetPostsByTagID&gt;d__2" filename="Repositories\TagRepository.cs" line-rate="0" branch-rate="0" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0" branch-rate="0" complexity="2">
+              <lines>
+                <line number="9" hits="0" branch="False" />
+                <line number="10" hits="0" branch="True" condition-coverage="0% (0/2)">
+                  <conditions>
+                    <condition number="226" type="jump" coverage="0%" />
+                  </conditions>
+                </line>
+                <line number="11" hits="0" branch="False" />
+                <line number="12" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="9" hits="0" branch="False" />
+            <line number="10" hits="0" branch="True" condition-coverage="0% (0/2)">
+              <conditions>
+                <condition number="226" type="jump" coverage="0%" />
+              </conditions>
+            </line>
+            <line number="11" hits="0" branch="False" />
+            <line number="12" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Repositories.UserRepository" filename="Repositories\UserRepository.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name=".ctor" signature="(BlogAPI.Models.BlogContext)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="6" hits="5" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="6" hits="5" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Repositories.UserRepository/&lt;GetCommentsByUserID&gt;d__3" filename="Repositories\UserRepository.cs" line-rate="0" branch-rate="0" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0" branch-rate="0" complexity="2">
+              <lines>
+                <line number="15" hits="0" branch="False" />
+                <line number="16" hits="0" branch="True" condition-coverage="0% (0/2)">
+                  <conditions>
+                    <condition number="226" type="jump" coverage="0%" />
+                  </conditions>
+                </line>
+                <line number="17" hits="0" branch="False" />
+                <line number="18" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="15" hits="0" branch="False" />
+            <line number="16" hits="0" branch="True" condition-coverage="0% (0/2)">
+              <conditions>
+                <condition number="226" type="jump" coverage="0%" />
+              </conditions>
+            </line>
+            <line number="17" hits="0" branch="False" />
+            <line number="18" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Repositories.UserRepository/&lt;GetPostsByUserID&gt;d__2" filename="Repositories\UserRepository.cs" line-rate="0" branch-rate="0" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0" branch-rate="0" complexity="2">
+              <lines>
+                <line number="9" hits="0" branch="False" />
+                <line number="10" hits="0" branch="True" condition-coverage="0% (0/2)">
+                  <conditions>
+                    <condition number="226" type="jump" coverage="0%" />
+                  </conditions>
+                </line>
+                <line number="11" hits="0" branch="False" />
+                <line number="12" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="9" hits="0" branch="False" />
+            <line number="10" hits="0" branch="True" condition-coverage="0% (0/2)">
+              <conditions>
+                <condition number="226" type="jump" coverage="0%" />
+              </conditions>
+            </line>
+            <line number="11" hits="0" branch="False" />
+            <line number="12" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.CategoryController" filename="Controllers\CategoryController.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name=".ctor" signature="(BlogAPI.Repositories.ICategoryRepository)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="9" hits="9" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="9" hits="9" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.CategoryController/&lt;DeleteCategory&gt;d__7" filename="Controllers\CategoryController.cs" line-rate="1" branch-rate="0.5" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="0.5" complexity="2">
+              <lines>
+                <line number="53" hits="2" branch="False" />
+                <line number="54" hits="2" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="143" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="55" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="53" hits="2" branch="False" />
+            <line number="54" hits="2" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="143" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="55" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.CategoryController/&lt;GetCategories&gt;d__2" filename="Controllers\CategoryController.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="14" hits="1" branch="False" />
+                <line number="15" hits="1" branch="False" />
+                <line number="16" hits="1" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="14" hits="1" branch="False" />
+            <line number="15" hits="1" branch="False" />
+            <line number="16" hits="1" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.CategoryController/&lt;GetCategory&gt;d__3" filename="Controllers\CategoryController.cs" line-rate="1" branch-rate="0.5" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="0.5" complexity="2">
+              <lines>
+                <line number="21" hits="2" branch="False" />
+                <line number="22" hits="2" branch="False" />
+                <line number="23" hits="2" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="157" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="24" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="21" hits="2" branch="False" />
+            <line number="22" hits="2" branch="False" />
+            <line number="23" hits="2" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="157" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="24" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.CategoryController/&lt;GetCategoryPosts&gt;d__4" filename="Controllers\CategoryController.cs" line-rate="0" branch-rate="0" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0" branch-rate="0" complexity="2">
+              <lines>
+                <line number="29" hits="0" branch="False" />
+                <line number="30" hits="0" branch="False" />
+                <line number="31" hits="0" branch="True" condition-coverage="0% (0/2)">
+                  <conditions>
+                    <condition number="157" type="jump" coverage="0%" />
+                  </conditions>
+                </line>
+                <line number="32" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="29" hits="0" branch="False" />
+            <line number="30" hits="0" branch="False" />
+            <line number="31" hits="0" branch="True" condition-coverage="0% (0/2)">
+              <conditions>
+                <condition number="157" type="jump" coverage="0%" />
+              </conditions>
+            </line>
+            <line number="32" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.CategoryController/&lt;PostCategory&gt;d__5" filename="Controllers\CategoryController.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="37" hits="2" branch="False" />
+                <line number="38" hits="2" branch="False" />
+                <line number="39" hits="2" branch="False" />
+                <line number="40" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="37" hits="2" branch="False" />
+            <line number="38" hits="2" branch="False" />
+            <line number="39" hits="2" branch="False" />
+            <line number="40" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.CategoryController/&lt;PutCategory&gt;d__6" filename="Controllers\CategoryController.cs" line-rate="1" branch-rate="0.5" complexity="4">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="0.5" complexity="4">
+              <lines>
+                <line number="45" hits="2" branch="False" />
+                <line number="46" hits="2" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="39" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="47" hits="2" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="182" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="48" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="45" hits="2" branch="False" />
+            <line number="46" hits="2" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="39" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="47" hits="2" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="182" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="48" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.CommentController" filename="Controllers\CommentController.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name=".ctor" signature="(BlogAPI.Repositories.ICommentRepository)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="9" hits="9" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="9" hits="9" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.CommentController/&lt;DeleteComment&gt;d__7" filename="Controllers\CommentController.cs" line-rate="1" branch-rate="0.5" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="0.5" complexity="2">
+              <lines>
+                <line number="58" hits="2" branch="False" />
+                <line number="59" hits="2" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="143" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="60" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="58" hits="2" branch="False" />
+            <line number="59" hits="2" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="143" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="60" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.CommentController/&lt;GetChildComments&gt;d__4" filename="Controllers\CommentController.cs" line-rate="0" branch-rate="0" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0" branch-rate="0" complexity="2">
+              <lines>
+                <line number="29" hits="0" branch="False" />
+                <line number="30" hits="0" branch="False" />
+                <line number="31" hits="0" branch="True" condition-coverage="0% (0/2)">
+                  <conditions>
+                    <condition number="157" type="jump" coverage="0%" />
+                  </conditions>
+                </line>
+                <line number="32" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="29" hits="0" branch="False" />
+            <line number="30" hits="0" branch="False" />
+            <line number="31" hits="0" branch="True" condition-coverage="0% (0/2)">
+              <conditions>
+                <condition number="157" type="jump" coverage="0%" />
+              </conditions>
+            </line>
+            <line number="32" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.CommentController/&lt;GetComment&gt;d__3" filename="Controllers\CommentController.cs" line-rate="1" branch-rate="0.5" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="0.5" complexity="2">
+              <lines>
+                <line number="21" hits="2" branch="False" />
+                <line number="22" hits="2" branch="False" />
+                <line number="23" hits="2" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="157" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="24" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="21" hits="2" branch="False" />
+            <line number="22" hits="2" branch="False" />
+            <line number="23" hits="2" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="157" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="24" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.CommentController/&lt;GetComments&gt;d__2" filename="Controllers\CommentController.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="14" hits="1" branch="False" />
+                <line number="15" hits="1" branch="False" />
+                <line number="16" hits="1" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="14" hits="1" branch="False" />
+            <line number="15" hits="1" branch="False" />
+            <line number="16" hits="1" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.CommentController/&lt;PostComment&gt;d__5" filename="Controllers\CommentController.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="37" hits="2" branch="False" />
+                <line number="38" hits="2" branch="False" />
+                <line number="39" hits="2" branch="False" />
+                <line number="40" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="37" hits="2" branch="False" />
+            <line number="38" hits="2" branch="False" />
+            <line number="39" hits="2" branch="False" />
+            <line number="40" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.CommentController/&lt;PutComment&gt;d__6" filename="Controllers\CommentController.cs" line-rate="1" branch-rate="0.5" complexity="4">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="0.5" complexity="4">
+              <lines>
+                <line number="45" hits="2" branch="False" />
+                <line number="46" hits="2" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="50" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="47" hits="2" branch="False" />
+                <line number="48" hits="2" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="219" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="49" hits="2" branch="False" />
+                <line number="50" hits="2" branch="False" />
+                <line number="51" hits="2" branch="False" />
+                <line number="52" hits="2" branch="False" />
+                <line number="53" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="45" hits="2" branch="False" />
+            <line number="46" hits="2" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="50" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="47" hits="2" branch="False" />
+            <line number="48" hits="2" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="219" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="49" hits="2" branch="False" />
+            <line number="50" hits="2" branch="False" />
+            <line number="51" hits="2" branch="False" />
+            <line number="52" hits="2" branch="False" />
+            <line number="53" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.PostController" filename="Controllers\PostController.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name=".ctor" signature="(BlogAPI.Repositories.IPostRepository)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="9" hits="9" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="9" hits="9" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.PostController/&lt;DeletePost&gt;d__7" filename="Controllers\PostController.cs" line-rate="1" branch-rate="0.5" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="0.5" complexity="2">
+              <lines>
+                <line number="58" hits="2" branch="False" />
+                <line number="59" hits="2" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="143" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="60" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="58" hits="2" branch="False" />
+            <line number="59" hits="2" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="143" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="60" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.PostController/&lt;GetPost&gt;d__3" filename="Controllers\PostController.cs" line-rate="1" branch-rate="0.5" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="0.5" complexity="2">
+              <lines>
+                <line number="21" hits="2" branch="False" />
+                <line number="22" hits="2" branch="False" />
+                <line number="23" hits="2" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="157" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="24" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="21" hits="2" branch="False" />
+            <line number="22" hits="2" branch="False" />
+            <line number="23" hits="2" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="157" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="24" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.PostController/&lt;GetPostTags&gt;d__4" filename="Controllers\PostController.cs" line-rate="0" branch-rate="0" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0" branch-rate="0" complexity="2">
+              <lines>
+                <line number="29" hits="0" branch="False" />
+                <line number="30" hits="0" branch="False" />
+                <line number="31" hits="0" branch="True" condition-coverage="0% (0/2)">
+                  <conditions>
+                    <condition number="157" type="jump" coverage="0%" />
+                  </conditions>
+                </line>
+                <line number="32" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="29" hits="0" branch="False" />
+            <line number="30" hits="0" branch="False" />
+            <line number="31" hits="0" branch="True" condition-coverage="0% (0/2)">
+              <conditions>
+                <condition number="157" type="jump" coverage="0%" />
+              </conditions>
+            </line>
+            <line number="32" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.PostController/&lt;GetPosts&gt;d__2" filename="Controllers\PostController.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="14" hits="1" branch="False" />
+                <line number="15" hits="1" branch="False" />
+                <line number="16" hits="1" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="14" hits="1" branch="False" />
+            <line number="15" hits="1" branch="False" />
+            <line number="16" hits="1" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.PostController/&lt;PostPost&gt;d__5" filename="Controllers\PostController.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="37" hits="2" branch="False" />
+                <line number="38" hits="2" branch="False" />
+                <line number="39" hits="2" branch="False" />
+                <line number="40" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="37" hits="2" branch="False" />
+            <line number="38" hits="2" branch="False" />
+            <line number="39" hits="2" branch="False" />
+            <line number="40" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.PostController/&lt;PutPost&gt;d__6" filename="Controllers\PostController.cs" line-rate="1" branch-rate="0.5" complexity="4">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="0.5" complexity="4">
+              <lines>
+                <line number="45" hits="2" branch="False" />
+                <line number="46" hits="2" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="50" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="47" hits="2" branch="False" />
+                <line number="48" hits="2" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="219" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="49" hits="2" branch="False" />
+                <line number="50" hits="2" branch="False" />
+                <line number="51" hits="2" branch="False" />
+                <line number="52" hits="2" branch="False" />
+                <line number="53" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="45" hits="2" branch="False" />
+            <line number="46" hits="2" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="50" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="47" hits="2" branch="False" />
+            <line number="48" hits="2" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="219" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="49" hits="2" branch="False" />
+            <line number="50" hits="2" branch="False" />
+            <line number="51" hits="2" branch="False" />
+            <line number="52" hits="2" branch="False" />
+            <line number="53" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.PostTagController" filename="Controllers\PostTagController.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name=".ctor" signature="(BlogAPI.Repositories.IPostTagRepository)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="9" hits="9" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="9" hits="9" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.PostTagController/&lt;DeletePostTag&gt;d__6" filename="Controllers\PostTagController.cs" line-rate="1" branch-rate="0.5" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="0.5" complexity="2">
+              <lines>
+                <line number="45" hits="2" branch="False" />
+                <line number="46" hits="2" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="143" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="47" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="45" hits="2" branch="False" />
+            <line number="46" hits="2" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="143" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="47" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.PostTagController/&lt;GetPostTag&gt;d__3" filename="Controllers\PostTagController.cs" line-rate="1" branch-rate="0.5" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="0.5" complexity="2">
+              <lines>
+                <line number="21" hits="2" branch="False" />
+                <line number="22" hits="2" branch="False" />
+                <line number="23" hits="2" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="157" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="24" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="21" hits="2" branch="False" />
+            <line number="22" hits="2" branch="False" />
+            <line number="23" hits="2" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="157" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="24" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.PostTagController/&lt;GetPostTags&gt;d__2" filename="Controllers\PostTagController.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="14" hits="1" branch="False" />
+                <line number="15" hits="1" branch="False" />
+                <line number="16" hits="1" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="14" hits="1" branch="False" />
+            <line number="15" hits="1" branch="False" />
+            <line number="16" hits="1" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.PostTagController/&lt;PostPostTag&gt;d__4" filename="Controllers\PostTagController.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="29" hits="2" branch="False" />
+                <line number="30" hits="2" branch="False" />
+                <line number="31" hits="2" branch="False" />
+                <line number="32" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="29" hits="2" branch="False" />
+            <line number="30" hits="2" branch="False" />
+            <line number="31" hits="2" branch="False" />
+            <line number="32" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.PostTagController/&lt;PutPostTag&gt;d__5" filename="Controllers\PostTagController.cs" line-rate="1" branch-rate="0.5" complexity="4">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="0.5" complexity="4">
+              <lines>
+                <line number="37" hits="2" branch="False" />
+                <line number="38" hits="2" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="39" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="39" hits="2" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="182" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="40" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="37" hits="2" branch="False" />
+            <line number="38" hits="2" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="39" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="39" hits="2" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="182" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="40" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.TagController" filename="Controllers\TagController.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name=".ctor" signature="(BlogAPI.Repositories.ITagRepository)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="9" hits="9" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="9" hits="9" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.TagController/&lt;DeleteTag&gt;d__7" filename="Controllers\TagController.cs" line-rate="1" branch-rate="0.5" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="0.5" complexity="2">
+              <lines>
+                <line number="53" hits="2" branch="False" />
+                <line number="54" hits="2" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="143" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="55" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="53" hits="2" branch="False" />
+            <line number="54" hits="2" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="143" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="55" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.TagController/&lt;GetTag&gt;d__3" filename="Controllers\TagController.cs" line-rate="1" branch-rate="0.5" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="0.5" complexity="2">
+              <lines>
+                <line number="21" hits="2" branch="False" />
+                <line number="22" hits="2" branch="False" />
+                <line number="23" hits="2" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="157" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="24" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="21" hits="2" branch="False" />
+            <line number="22" hits="2" branch="False" />
+            <line number="23" hits="2" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="157" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="24" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.TagController/&lt;GetTagPosts&gt;d__4" filename="Controllers\TagController.cs" line-rate="0" branch-rate="0" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0" branch-rate="0" complexity="2">
+              <lines>
+                <line number="29" hits="0" branch="False" />
+                <line number="30" hits="0" branch="False" />
+                <line number="31" hits="0" branch="True" condition-coverage="0% (0/2)">
+                  <conditions>
+                    <condition number="157" type="jump" coverage="0%" />
+                  </conditions>
+                </line>
+                <line number="32" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="29" hits="0" branch="False" />
+            <line number="30" hits="0" branch="False" />
+            <line number="31" hits="0" branch="True" condition-coverage="0% (0/2)">
+              <conditions>
+                <condition number="157" type="jump" coverage="0%" />
+              </conditions>
+            </line>
+            <line number="32" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.TagController/&lt;GetTags&gt;d__2" filename="Controllers\TagController.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="14" hits="1" branch="False" />
+                <line number="15" hits="1" branch="False" />
+                <line number="16" hits="1" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="14" hits="1" branch="False" />
+            <line number="15" hits="1" branch="False" />
+            <line number="16" hits="1" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.TagController/&lt;PostTag&gt;d__5" filename="Controllers\TagController.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="37" hits="2" branch="False" />
+                <line number="38" hits="2" branch="False" />
+                <line number="39" hits="2" branch="False" />
+                <line number="40" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="37" hits="2" branch="False" />
+            <line number="38" hits="2" branch="False" />
+            <line number="39" hits="2" branch="False" />
+            <line number="40" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.TagController/&lt;PutTag&gt;d__6" filename="Controllers\TagController.cs" line-rate="1" branch-rate="0.5" complexity="4">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="0.5" complexity="4">
+              <lines>
+                <line number="45" hits="2" branch="False" />
+                <line number="46" hits="2" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="39" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="47" hits="2" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="182" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="48" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="45" hits="2" branch="False" />
+            <line number="46" hits="2" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="39" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="47" hits="2" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="182" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="48" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.UserController" filename="Controllers\UserController.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name=".ctor" signature="(BlogAPI.Repositories.IUserRepository)" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="9" hits="9" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="9" hits="9" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.UserController/&lt;DeleteUser&gt;d__8" filename="Controllers\UserController.cs" line-rate="1" branch-rate="0.5" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="0.5" complexity="2">
+              <lines>
+                <line number="61" hits="2" branch="False" />
+                <line number="62" hits="2" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="143" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="63" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="61" hits="2" branch="False" />
+            <line number="62" hits="2" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="143" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="63" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.UserController/&lt;GetUser&gt;d__3" filename="Controllers\UserController.cs" line-rate="1" branch-rate="0.5" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="0.5" complexity="2">
+              <lines>
+                <line number="21" hits="2" branch="False" />
+                <line number="22" hits="2" branch="False" />
+                <line number="23" hits="2" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="157" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="24" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="21" hits="2" branch="False" />
+            <line number="22" hits="2" branch="False" />
+            <line number="23" hits="2" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="157" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="24" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.UserController/&lt;GetUserComments&gt;d__5" filename="Controllers\UserController.cs" line-rate="0" branch-rate="0" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0" branch-rate="0" complexity="2">
+              <lines>
+                <line number="37" hits="0" branch="False" />
+                <line number="38" hits="0" branch="False" />
+                <line number="39" hits="0" branch="True" condition-coverage="0% (0/2)">
+                  <conditions>
+                    <condition number="157" type="jump" coverage="0%" />
+                  </conditions>
+                </line>
+                <line number="40" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="37" hits="0" branch="False" />
+            <line number="38" hits="0" branch="False" />
+            <line number="39" hits="0" branch="True" condition-coverage="0% (0/2)">
+              <conditions>
+                <condition number="157" type="jump" coverage="0%" />
+              </conditions>
+            </line>
+            <line number="40" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.UserController/&lt;GetUserPosts&gt;d__4" filename="Controllers\UserController.cs" line-rate="0" branch-rate="0" complexity="2">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="0" branch-rate="0" complexity="2">
+              <lines>
+                <line number="29" hits="0" branch="False" />
+                <line number="30" hits="0" branch="False" />
+                <line number="31" hits="0" branch="True" condition-coverage="0% (0/2)">
+                  <conditions>
+                    <condition number="157" type="jump" coverage="0%" />
+                  </conditions>
+                </line>
+                <line number="32" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="29" hits="0" branch="False" />
+            <line number="30" hits="0" branch="False" />
+            <line number="31" hits="0" branch="True" condition-coverage="0% (0/2)">
+              <conditions>
+                <condition number="157" type="jump" coverage="0%" />
+              </conditions>
+            </line>
+            <line number="32" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.UserController/&lt;GetUsers&gt;d__2" filename="Controllers\UserController.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="14" hits="1" branch="False" />
+                <line number="15" hits="1" branch="False" />
+                <line number="16" hits="1" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="14" hits="1" branch="False" />
+            <line number="15" hits="1" branch="False" />
+            <line number="16" hits="1" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.UserController/&lt;PostUser&gt;d__6" filename="Controllers\UserController.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="45" hits="2" branch="False" />
+                <line number="46" hits="2" branch="False" />
+                <line number="47" hits="2" branch="False" />
+                <line number="48" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="45" hits="2" branch="False" />
+            <line number="46" hits="2" branch="False" />
+            <line number="47" hits="2" branch="False" />
+            <line number="48" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="BlogAPI.Controllers.UserController/&lt;PutUser&gt;d__7" filename="Controllers\UserController.cs" line-rate="1" branch-rate="0.5" complexity="4">
+          <methods>
+            <method name="MoveNext" signature="()" line-rate="1" branch-rate="0.5" complexity="4">
+              <lines>
+                <line number="53" hits="2" branch="False" />
+                <line number="54" hits="2" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="39" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="55" hits="2" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="182" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="56" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="53" hits="2" branch="False" />
+            <line number="54" hits="2" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="39" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="55" hits="2" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="182" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="56" hits="2" branch="False" />
+          </lines>
+        </class>
+      </classes>
+    </package>
+  </packages>
+</coverage>
