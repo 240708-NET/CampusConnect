@@ -91,11 +91,7 @@ public class TagRepositoryTests
         //ARRANGE
         //Creating tag then adding to context
         using var context = CreateContext();
-        var tag = new Tag 
-        { 
-            ID = 1, 
-            Name = "Tag1"
-        };
+        var tag = new Tag { ID = 1, Name = "Tag1" };
         context.Tags.Add(tag);
         await context.SaveChangesAsync();
 
@@ -141,11 +137,7 @@ public class TagRepositoryTests
         //ARRANGE
         //Creating a tag and posts, then adding to context
         using var context = CreateContext();
-        var tag = new Tag 
-        { 
-            ID = 1, 
-            Name = "Tag1" 
-        };
+        var tag = new Tag { ID = 1, Name = "Tag1" };
         context.Tags.Add(tag);
         await context.SaveChangesAsync();
 
@@ -159,6 +151,7 @@ public class TagRepositoryTests
             Category = new Category { Name = "Category1" }, 
             Poster = new User { Username = "User1", Password = "Password1" } 
         };
+        
         var post2 = new Post 
         { 
             ID = 2, 

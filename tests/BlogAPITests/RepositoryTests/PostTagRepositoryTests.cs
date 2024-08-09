@@ -93,12 +93,7 @@ public class PostTagRepositoryTests
         //ARRANGE
         //Creating post tag then adding to context
         using var context = CreateContext();
-        var postTag = new PostTag 
-        { 
-            ID = 1, 
-            PostID = 1, 
-            TagID = 1 
-        };
+        var postTag = new PostTag { ID = 1, PostID = 1, TagID = 1 };
         context.PostTags.Add(postTag);
         await context.SaveChangesAsync();
 
