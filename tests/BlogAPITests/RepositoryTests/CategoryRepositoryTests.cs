@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;         //For DbContextOptions, InMemoryDbContextOptionsBuilder
-using BlogAPI.Models;                        //For BlogContext, Category
+using BlogAPI.Models;                        //For BlogContext, Category, Post
 using BlogAPI.Repositories;                  //For CategoryRepository
 
 namespace BlogAPITests;
@@ -91,13 +91,19 @@ public class CategoryRepositoryTests
         //ARRANGE
         //Creating category then adding to context
         using var context = CreateContext();
-        context.Categories.Add(new Category { ID = 1, Name = "Category1" });
+        var category = new Category 
+        { 
+            ID = 1, 
+            Name = "Category1"
+        };
+        context.Categories.Add(category);
         await context.SaveChangesAsync();
+
         var repository = new CategoryRepository(context);
 
         //ACT
-        //Getting category by id, changing name, calling Update(TEntity entity), then saving changes
-        var category = await repository.GetById(1);
+        //Getting category by id, detaching it, changing name, calling Update(TEntity entity), then saving changes
+        context.Entry(category).State = EntityState.Detached;
         category.Name = "UpdatedCategory";
         await repository.Update(category);
         await context.SaveChangesAsync();
@@ -127,5 +133,30 @@ public class CategoryRepositoryTests
         //Checking if context is empty as we expect
         var categories = await context.Categories.ToListAsync();
         Assert.Empty(categories);
+    }
+
+    [Fact]
+    public async Task GetPostsByCategoryID_ReturnsPostsForCategory()
+    {
+        //ARRANGE
+        //Creating a category and posts, then adding to context
+        using var context = CreateContext();
+        var category = new Category { ID = 1, Name = "Category1" };
+        context.Categories.Add(category);
+        context.Posts.AddRange(
+            new Post { ID = 1, CategoryID = 1, Topic = "Topic1", Body = "Body1" },
+            new Post { ID = 2, CategoryID = 1, Topic = "Topic2", Body = "Body2" }
+        );
+        await context.SaveChangesAsync();
+        var repository = new CategoryRepository(context);
+
+        //ACT
+        //Calling GetPostsByCategoryID(int categoryID) method
+        var posts = await repository.GetPostsByCategoryID(1);
+
+        //ASSERT
+        //Verifying that there are 2 posts and they belong to the category
+        Assert.NotNull(posts);
+        Assert.Equal(2, posts.Count);
     }
 }

@@ -1,9 +1,10 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using System.Diagnostics.CodeAnalysis;
 
 namespace BlogAPI.Models
 {
-
+    [ExcludeFromCodeCoverage]
     public class Comment : IIdentified
     {
         [Key]

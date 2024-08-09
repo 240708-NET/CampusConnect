@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;         //For DbContextOptions, InMemoryDbContextOptionsBuilder
-using BlogAPI.Models;                        //For BlogContext, Post
+using BlogAPI.Models;                        //For BlogContext, Post, Tag, Category, User, PostTag
 using BlogAPI.Repositories;                  //For PostRepository
 
 namespace BlogAPITests;
@@ -36,7 +36,7 @@ public class PostRepositoryTests
                 Body = "Body1", 
                 CreatedAt = DateTime.Now, 
                 EditedAt = DateTime.Now, 
-                PostCategory = new Category { Name = "Category1" }, 
+                Category = new Category { Name = "Category1" }, 
                 Poster = new User { Username = "User1", Password = "Password1" } 
             },
             new Post 
@@ -45,7 +45,7 @@ public class PostRepositoryTests
                 Body = "Body2", 
                 CreatedAt = DateTime.Now, 
                 EditedAt = DateTime.Now, 
-                PostCategory = new Category { Name = "Category2" }, 
+                Category = new Category { Name = "Category2" }, 
                 Poster = new User { Username = "User2", Password = "Password2" } 
             }
         );
@@ -74,7 +74,7 @@ public class PostRepositoryTests
             Body = "Body1", 
             CreatedAt = DateTime.Now, 
             EditedAt = DateTime.Now, 
-            PostCategory = new Category { Name = "Category1" }, 
+            Category = new Category { Name = "Category1" }, 
             Poster = new User { Username = "User1", Password = "Password1" } 
         });
         await context.SaveChangesAsync();
@@ -104,7 +104,7 @@ public class PostRepositoryTests
             Body = "NewBody", 
             CreatedAt = DateTime.Now, 
             EditedAt = DateTime.Now, 
-            PostCategory = new Category { Name = "NewCategory" }, 
+            Category = new Category { Name = "NewCategory" }, 
             Poster = new User { Username = "NewUser", Password = "NewPassword" } 
         };
         //Calling Insert(TEntity entity)
@@ -124,22 +124,24 @@ public class PostRepositoryTests
         //ARRANGE
         //Creating post then adding to context
         using var context = CreateContext();
-        context.Posts.Add(new Post 
+        var post = new Post 
         { 
             ID = 1, 
             Topic = "Post1", 
             Body = "Body1", 
             CreatedAt = DateTime.Now, 
             EditedAt = DateTime.Now, 
-            PostCategory = new Category { Name = "Category1" }, 
+            Category = new Category { Name = "Category1" }, 
             Poster = new User { Username = "User1", Password = "Password1" } 
-        });
+        };
+        context.Posts.Add(post);
         await context.SaveChangesAsync();
+
         var repository = new PostRepository(context);
 
         //ACT
-        //Getting post by id, changing topic, calling Update(TEntity entity), then saving changes
-        var post = await repository.GetById(1);
+        //Getting post by id, detaching it, changing topic, calling Update(TEntity entity), then saving changes
+        context.Entry(post).State = EntityState.Detached;
         post.Topic = "UpdatedPost";
         await repository.Update(post);
         await context.SaveChangesAsync();
@@ -149,6 +151,7 @@ public class PostRepositoryTests
         var updatedPost = await context.Posts.FindAsync(1);
         Assert.Equal("UpdatedPost", updatedPost.Topic);
     }
+
 
     [Fact]
     public async Task Delete_RemovesPost()
@@ -162,8 +165,8 @@ public class PostRepositoryTests
             Topic = "Post1", 
             Body = "Body1", 
             CreatedAt = DateTime.Now, 
-            EditedAt = DateTime.Now, 
-            PostCategory = new Category { Name = "Category1" }, 
+            EditedAt = DateTime.Now,
+            Category = new Category { Name = "Category1" }, 
             Poster = new User { Username = "User1", Password = "Password1" } 
         });
         await context.SaveChangesAsync();
@@ -178,5 +181,47 @@ public class PostRepositoryTests
         //Checking if context is empty as we expect
         var posts = await context.Posts.ToListAsync();
         Assert.Empty(posts);
+    }
+
+    [Fact]
+    public async Task GetTagsByPostID_ReturnsTagsForPost()
+    {
+        //ARRANGE
+        //Creating a post and tags, then adding to context
+        using var context = CreateContext();
+        var post = new Post 
+        { 
+            ID = 1, 
+            Topic = "Post1", 
+            Body = "Body1", 
+            CreatedAt = DateTime.Now, 
+            EditedAt = DateTime.Now, 
+            Category = new Category { Name = "Category1" }, 
+            Poster = new User { Username = "User1", Password = "Password1" } 
+        };
+        context.Posts.Add(post);
+        await context.SaveChangesAsync();
+
+        var tag1 = new Tag { ID = 1, Name = "Tag1" };
+        var tag2 = new Tag { ID = 2, Name = "Tag2" };
+        context.Tags.AddRange(tag1, tag2);
+
+        context.PostTags.AddRange(
+            new PostTag { PostID = post.ID, TagID = tag1.ID },
+            new PostTag { PostID = post.ID, TagID = tag2.ID }
+        );
+        await context.SaveChangesAsync();
+        var repository = new PostRepository(context);
+
+        //ACT
+        //Calling GetTagsByPostID(int postID) method
+        var tags = await repository.GetTagsByPostID(post.ID);
+
+        //ASSERT
+        //Verifying that there are 2 tags and they belong to the post
+        Assert.NotNull(tags);
+        Assert.Equal(2, tags.Count);
+        Assert.Contains(tags, t => t.Name == "Tag1");
+        Assert.Contains(tags, t => t.Name == "Tag2");
     }
 }
