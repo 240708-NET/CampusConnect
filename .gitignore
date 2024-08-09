@@ -2,3 +2,4 @@ bin
 obj
 CoverageReport
 coverage.opencover.xml
+coverage.runsettings
