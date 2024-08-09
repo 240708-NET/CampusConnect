@@ -1,33 +1,12 @@
 import { createContext, ReactNode, useState } from 'react';
 import axios from 'axios';
 
-const defaultUser = {
-    username : "Sample",
-    isAdmin : false,
-    posts : [{
-        id: 1,
-        topic: "sample post",
-        body: "sample content",
-        postCategory: "misc",
-        poster: "Sample",
-        createdAt: new Date(),
-        editedAt: new Date(),
-        tags: []
-    }],
-    comments: [{
-        id: 1,
-        body: 'general comment',
-        createdAt: new Date(),
-        editedAt: new Date()
-    }]
-}
-
 // Define the User type
 interface User {
+    id: number,
     username: string,
+    password: string,
     isAdmin: boolean,
-    posts: Post[],
-    comments: Comment[]
 }
 
 // Define the Post type
@@ -51,8 +30,10 @@ interface Comment {
 }
 
 interface UserContextProps {
-    user: User,
-    fetchUser: (username: string) => void;
+    user: User | undefined,
+    fetchUser: (username: string, password: string) => void;
+    addUser: (username: string, password: string) => void;
+    logOut: () => void;
 }
 
 export const UserContext = createContext<UserContextProps | undefined>(undefined);
@@ -63,20 +44,41 @@ interface UserProviderProps {
 
 export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
 
-    const [user, setUser] = useState( defaultUser );
+    const [user, setUser] = useState<User>( );
 
-    const fetchUser = async (username: string) => { 
-
+    const fetchUser = async (username: string, password: string) => {
         try {
-            const response = await axios.get(`/api/user/`);
-            setUser(response.data.filter((user: User)=> user.username));
+            const response = await axios.get(`http://localhost:5226/api/user`);
+            setUser(response.data.filter((user: User)=> user.username == username)[0]);
         } catch (error) {
             console.error('Error getting user', error);
         }
     }
 
+    const addUser = async (username: string, password: string) => {
+        let tempUser: User | undefined;
+
+        try {
+            const response = await axios.get(`http://localhost:5226/api/user`);
+            tempUser = (response.data.filter((user: User)=> user.username == username)[0]);
+
+            if(!tempUser) {
+                const response = await axios.post(`http://localhost:5226/api/user`, {
+                    username: username, password: password
+                });
+                setUser(response.data);
+            } 
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    const logOut = () => {
+        setUser(undefined);
+    }
+
     return(
-        <UserContext.Provider value = {{ user: user, fetchUser }}>
+        <UserContext.Provider value = {{ user: user, fetchUser, addUser, logOut }}>
             {children}
         </UserContext.Provider>
     )

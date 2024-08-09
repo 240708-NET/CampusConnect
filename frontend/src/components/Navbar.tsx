@@ -1,10 +1,16 @@
 // src/components/Navbar/Navbar.tsx
-import React from 'react';
-import './Navbar.css';
+import React, { useContext } from 'react';
+import '../style/Navbar.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { UserContext } from '../context/UserContext';
+import { Link } from 'react-router-dom';
 
 
 const Navbar: React.FC = () => {
+  const context = useContext(UserContext);
+
+  const user = context?.user;
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <a className="navbar-brand" href="#">CampusConnect</a>
@@ -14,16 +20,13 @@ const Navbar: React.FC = () => {
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
-            <a className="nav-link" href="#">Home</a>
+            <Link className="nav-link" to="/">Home</Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">Posts</a>
+            <Link className="nav-link" to="/profile">Profile</Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">Profile</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Logout</a>
+            <Link className="nav-link" to={ user ? "/logout" : "/login"}> { user ? `Logout, ${user.username}` : "Login"}</Link> 
           </li>
         </ul>
       </div>
