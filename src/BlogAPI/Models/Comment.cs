@@ -12,8 +12,7 @@ namespace BlogAPI.Models
         [Required]
         public int OriginalPostID { get; set; }
         public int? ParentCommentID { get; set; }
-        [Required]
-        public int CommenterID { get; set; }
+        public int? CommenterID { get; set; }
         [Required]
         public required string Body { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
@@ -24,7 +23,7 @@ namespace BlogAPI.Models
         [JsonIgnore]
         public Comment? ParentComment { get; set; }
         [JsonIgnore]
-        public User Commenter { get; set; } = null!;
+        public User? Commenter { get; set; } = null!;
         [JsonIgnore]
         public ICollection<Comment> ChildComments { get; } = [];
 
