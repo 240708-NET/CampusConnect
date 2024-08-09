@@ -44,13 +44,19 @@ const LoginPage: React.FC = () => {
         <div>
             <Navbar />
             <div className="profile-page container">
-                <form onSubmit={logOn}>
-                    <label htmlFor="username">Username</label>
-                    <input type="text" id="username" name="username" value={userField} onChange={userChange} required></input>
-                    <label htmlFor="password">Password</label>
-                    <input type="password" id="password" name="password" value={passField} onChange={passChange} required></input>
-                    <button type="submit" value="login">Login</button>
-                    <button type="submit" value="signup" onClick={signUp}>Sign Up</button>
+                <form onSubmit={logOn} className="card p-4 mx-auto" style={{ maxWidth: '400px' }}>
+                    <div className="form-group">
+                        <label htmlFor="username">Username</label>
+                        <input type="text" id="username" name="username" className="form-control" value={userField} onChange={userChange} required />
+                    </div>
+                    <div className="form-group mt-3">
+                        <label htmlFor="password">Password</label>
+                        <input type="password" id="password" name="password" className="form-control" value={passField} onChange={passChange} required />
+                    </div>
+                    <div className="d-flex justify-content-between mt-4">
+                        <button type="submit" className="btn btn-primary" value="login">Login</button>
+                        <button type="button" className="btn btn-secondary" value="signup" onClick={signUp}>Sign Up</button>
+                    </div>
                 </form>
             </div>
         </div>
