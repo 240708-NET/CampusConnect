@@ -1,4 +1,4 @@
 bin
 obj
-coverage-report
+CoverageReport
 coverage.opencover.xml

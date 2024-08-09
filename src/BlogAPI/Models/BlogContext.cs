@@ -1,7 +1,9 @@
 namespace BlogAPI.Models;
 
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.CodeAnalysis;
 
+[ExcludeFromCodeCoverage]
 public class BlogContext(DbContextOptions<BlogContext> options) : DbContext(options)
 {
     public DbSet<User> Users { get; set; }
