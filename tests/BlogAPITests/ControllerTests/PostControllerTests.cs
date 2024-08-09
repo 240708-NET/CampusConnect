@@ -28,9 +28,46 @@ public class PostControllerTests
         //Creating a list of posts, and initializing it with 2 posts
         List<Post> posts = new List<Post>
         {
-            new Post { ID = 1, Topic = "Topic1", Body = "Body1", CreatedAt = DateTime.Now, EditedAt = DateTime.Now, Category = new Category { ID = 1, Name = "Category1" }, Poster = new User { ID = 1, Username = "User1", Password = "Password1" } },
-            new Post { ID = 2, Topic = "Topic2", Body = "Body2", CreatedAt = DateTime.Now, EditedAt = DateTime.Now, Category = new Category { ID = 2, Name = "Category2" }, Poster = new User { ID = 2, Username = "User2", Password = "Password2" } }
+            new Post
+            {
+                ID = 1,
+                Topic = "Topic1",
+                Body = "Body1",
+                CreatedAt = DateTime.Now,
+                EditedAt = DateTime.Now,
+                Category = new Category
+                {
+                    ID = 1,
+                    Name = "Category1"
+                },
+                Poster = new User
+                {
+                    ID = 1,
+                    Username = "User1",
+                    Password = "Password1"
+                }
+            },
+            new Post
+            {
+                ID = 2,
+                Topic = "Topic2",
+                Body = "Body2",
+                CreatedAt = DateTime.Now,
+                EditedAt = DateTime.Now,
+                Category = new Category
+                {
+                    ID = 2,
+                    Name = "Category2"
+                },
+                Poster = new User
+                {
+                    ID = 2,
+                    Username = "User2",
+                    Password = "Password2"
+                }
+            }
         };
+        //Adding tags to posts to try to simulate real world
         posts[0].Tags.Add(new Tag { Name = "Tag1" });
         posts[1].Tags.Add(new Tag { Name = "Tag2" });
 
@@ -57,7 +94,27 @@ public class PostControllerTests
     {
         //ARRANGE
         //Creating a post object with parameters
-        Post post = new Post { ID = id, Topic = title, Body = "Body", CreatedAt = DateTime.Now, EditedAt = DateTime.Now, Category = new Category { ID = id, Name = $"Category{id}" }, Poster = new User { ID = id, Username = $"User{id}", Password = $"Password{id}" } };
+        Post post = new Post
+        {
+            ID = id,
+            Topic = title,
+            Body = "Body",
+            CreatedAt = DateTime.Now,
+            EditedAt = DateTime.Now,
+            Category = new Category
+            {
+                ID = id,
+                Name = $"Category{id}"
+            },
+            Poster = new User
+            {
+                ID = id,
+                Username = $"User{id}",
+                Password = $"Password{id}"
+            }
+        };
+
+        //Adding tags to post to try to simulate real world
         post.Tags.Add(new Tag { Name = $"Tag{id}" });
 
         //Configuring behavior of _mockRepository, return post asynchronously
@@ -84,7 +141,27 @@ public class PostControllerTests
     {
         //ARRANGE
         //Creating a post object with parameters
-        Post post = new Post { ID = id, Topic = title, Body = "Body", CreatedAt = DateTime.Now, EditedAt = DateTime.Now, Category = new Category { ID = id, Name = $"Category{id}" }, Poster = new User { ID = id, Username = $"User{id}", Password = $"Password{id}" } };
+        Post post = new Post
+        {
+            ID = id,
+            Topic = title,
+            Body = "Body",
+            CreatedAt = DateTime.Now,
+            EditedAt = DateTime.Now,
+            Category = new Category
+            {
+                ID = id,
+                Name = $"Category{id}"
+            },
+            Poster = new User
+            {
+                ID = id,
+                Username = $"User{id}",
+                Password = $"Password{id}"
+            }
+        };
+
+        //Adding tags to post to try to simulate real world
         post.Tags.Add(new Tag { Name = $"Tag{id}" });
 
         //Configuring behavior of _mockRepository. Task.CompletedTask indicates successful operation
@@ -112,9 +189,46 @@ public class PostControllerTests
     {
         //ARRANGE
         //Creating objects for an "existing" post, and a post that will represent the changes to be made
-        Post existingPost = new Post { ID = id, Topic = $"Post{id}", Body = "Body", CreatedAt = DateTime.Now, EditedAt = DateTime.Now, Category = new Category { ID = id, Name = $"Category{id}" }, Poster = new User { ID = id, Username = $"User{id}", Password = $"Password{id}" } };
+        Post existingPost = new Post
+        {
+            ID = id,
+            Topic = $"Post{id}",
+            Body = "Body",
+            CreatedAt = DateTime.Now,
+            EditedAt = DateTime.Now,
+            Category = new Category
+            {
+                ID = id,
+                Name = $"Category{id}"
+            },
+            Poster = new User
+            {
+                ID = id,
+                Username = $"User{id}",
+                Password = $"Password{id}"
+            }
+        };
         existingPost.Tags.Add(new Tag { Name = $"Tag{id}" });
-        Post updatedPost = new Post { ID = id, Topic = title, Body = "Body", CreatedAt = DateTime.Now, EditedAt = DateTime.Now, Category = new Category { ID = id, Name = $"Category{id}" }, Poster = new User { ID = id, Username = $"User{id}", Password = $"Password{id}" } };
+
+        Post updatedPost = new Post
+        {
+            ID = id,
+            Topic = title,
+            Body = "Body",
+            CreatedAt = DateTime.Now,
+            EditedAt = DateTime.Now,
+            Category = new Category
+            {
+                ID = id,
+                Name = $"Category{id}"
+            },
+            Poster = new User
+            {
+                ID = id,
+                Username = $"User{id}",
+                Password = $"Password{id}"
+            }
+        };
         updatedPost.Tags.Add(new Tag { Name = $"Tag{id}" });
 
         //Configuring behavior of _mockRepository. Return existingPost asynchronously and true indicating successful update

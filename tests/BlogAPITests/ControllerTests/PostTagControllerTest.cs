@@ -132,11 +132,7 @@ public class PostTagControllerTests
     public async Task DeletePostTag_DeletesExistingPostTag(int id)
     {
         //ARRANGE
-        //Creating a PostTag object
-        PostTag existingPostTag = new PostTag { ID = id, PostID = id, TagID = id };
-
-        //Configuring behavior of _mockRepository. Return existingPostTag asynchronously and true indicating successful delete
-        _mockRepository.Setup(repo => repo.GetById(id)).ReturnsAsync(existingPostTag);
+        //Configuring behavior of _mockRepository to return true indicating successful delete
         _mockRepository.Setup(repo => repo.DeleteById(id)).ReturnsAsync(true);
 
         //ACT

@@ -91,11 +91,7 @@ public class CategoryRepositoryTests
         //ARRANGE
         //Creating category then adding to context
         using var context = CreateContext();
-        var category = new Category 
-        { 
-            ID = 1, 
-            Name = "Category1"
-        };
+        var category = new Category { ID = 1, Name = "Category1"};
         context.Categories.Add(category);
         await context.SaveChangesAsync();
 

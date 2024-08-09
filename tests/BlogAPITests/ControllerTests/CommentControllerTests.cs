@@ -28,9 +28,74 @@ public class CommentControllerTests
         //Creating a list of comments, and initializing it with 2 comments
         List<Comment> comments = new List<Comment>
         {
-            new Comment { ID = 1, Body = "Comment1", CreatedAt = DateTime.Now, EditedAt = DateTime.Now, OriginalPost = new Post { ID = 1, Topic = "Post1", Body = "Body1", CreatedAt = DateTime.Now, EditedAt = DateTime.Now, Category = new Category { ID = 1, Name = "Category1" }, Poster = new User { ID = 1, Username = "User1", Password = "Password1" } }, Commenter = new User { ID = 1, Username = "User1", Password = "Password1" }, ParentComment = null },
-            new Comment { ID = 2, Body = "Comment2", CreatedAt = DateTime.Now, EditedAt = DateTime.Now, OriginalPost = new Post { ID = 2, Topic = "Post2", Body = "Body2", CreatedAt = DateTime.Now, EditedAt = DateTime.Now, Category = new Category { ID = 2, Name = "Category2" }, Poster = new User { ID = 2, Username = "User2", Password = "Password2" } }, Commenter = new User { ID = 2, Username = "User2", Password = "Password2" }, ParentComment = null }
+            new Comment
+            {
+                ID = 1,
+                Body = "Comment1",
+                CreatedAt = DateTime.Now,
+                EditedAt = DateTime.Now,
+                OriginalPost = new Post
+                {
+                    ID = 1,
+                    Topic = "Post1",
+                    Body = "Body1",
+                    CreatedAt = DateTime.Now,
+                    EditedAt = DateTime.Now,
+                    Category = new Category
+                    {
+                        ID = 1,
+                        Name = "Category1"
+                    },
+                    Poster = new User
+                    {
+                        ID = 1,
+                        Username = "User1",
+                        Password = "Password1"
+                    }
+                },
+                Commenter = new User
+                {
+                    ID = 1,
+                    Username = "User1",
+                    Password = "Password1"
+                },
+                ParentComment = null
+            },
+            new Comment
+            {
+                ID = 2,
+                Body = "Comment2",
+                CreatedAt = DateTime.Now,
+                EditedAt = DateTime.Now,
+                OriginalPost = new Post
+                {
+                    ID = 2,
+                    Topic = "Post2",
+                    Body = "Body2",
+                    CreatedAt = DateTime.Now,
+                    EditedAt = DateTime.Now,
+                    Category = new Category
+                    {
+                        ID = 2,
+                        Name = "Category2"
+                    },
+                    Poster = new User
+                    {
+                        ID = 2,
+                        Username = "User2",
+                        Password = "Password2"
+                    }
+                },
+                Commenter = new User
+                {
+                    ID = 2,
+                    Username = "User2",
+                    Password = "Password2"
+                },
+                ParentComment = null
+            }
         };
+        //Addomg tags to posts to try to simulate real world
         comments[0].OriginalPost.Tags.Add(new Tag { Name = "Tag1" });
         comments[1].OriginalPost.Tags.Add(new Tag { Name = "Tag2" });
 
@@ -57,7 +122,40 @@ public class CommentControllerTests
     {
         //ARRANGE
         //Creating a comment object with parameters
-        Comment comment = new Comment { ID = id, Body = content, CreatedAt = DateTime.Now, EditedAt = DateTime.Now, OriginalPost = new Post { ID = id, Topic = $"Post{id}", Body = "Body", CreatedAt = DateTime.Now, EditedAt = DateTime.Now, Category = new Category { ID = id, Name = $"Category{id}" }, Poster = new User { ID = id, Username = $"User{id}", Password = $"Password{id}" } }, Commenter = new User { ID = id, Username = $"User{id}", Password = $"Password{id}" }, ParentComment = null };
+        Comment comment = new Comment 
+        { 
+            ID = id, 
+            Body = content, 
+            CreatedAt = DateTime.Now, 
+            EditedAt = DateTime.Now, 
+            OriginalPost = new Post 
+            { 
+                ID = id, 
+                Topic = $"Post{id}", 
+                Body = "Body", 
+                CreatedAt = DateTime.Now, 
+                EditedAt = DateTime.Now, 
+                Category = new Category 
+                { 
+                    ID = id, 
+                    Name = $"Category{id}" 
+                }, 
+                Poster = new User 
+                { 
+                    ID = id, 
+                    Username = $"User{id}", 
+                    Password = $"Password{id}" 
+                } 
+            }, 
+            Commenter = new User 
+            { 
+                ID = id, 
+                Username = $"User{id}", 
+                Password = $"Password{id}" 
+            }, 
+            ParentComment = null 
+        };
+        //Adding tag to post to try to simulate real world
         comment.OriginalPost.Tags.Add(new Tag { Name = $"Tag{id}" });
 
         //Configuring behavior of _mockRepository, return comment asynchronously
@@ -84,7 +182,40 @@ public class CommentControllerTests
     {
         //ARRANGE
         //Creating a comment object with parameters
-        Comment comment = new Comment { ID = id, Body = content, CreatedAt = DateTime.Now, EditedAt = DateTime.Now, OriginalPost = new Post { ID = id, Topic = $"Post{id}", Body = "Body", CreatedAt = DateTime.Now, EditedAt = DateTime.Now, Category = new Category { ID = id, Name = $"Category{id}" }, Poster = new User { ID = id, Username = $"User{id}", Password = $"Password{id}" } }, Commenter = new User { ID = id, Username = $"User{id}", Password = $"Password{id}" }, ParentComment = null };
+        Comment comment = new Comment
+        {
+            ID = id,
+            Body = content,
+            CreatedAt = DateTime.Now,
+            EditedAt = DateTime.Now,
+            OriginalPost = new Post
+            {
+                ID = id,
+                Topic = $"Post{id}",
+                Body = "Body",
+                CreatedAt = DateTime.Now,
+                EditedAt = DateTime.Now,
+                Category = new Category
+                {
+                    ID = id,
+                    Name = $"Category{id}"
+                },
+                Poster = new User
+                {
+                    ID = id,
+                    Username = $"User{id}",
+                    Password = $"Password{id}"
+                }
+            },
+            Commenter = new User
+            {
+                ID = id,
+                Username = $"User{id}",
+                Password = $"Password{id}"
+            },
+            ParentComment = null
+        };
+        //Adding tag to post to try to simulate real world
         comment.OriginalPost.Tags.Add(new Tag { Name = $"Tag{id}" });
 
         //Configuring behavior of _mockRepository. Task.CompletedTask indicates successful operation
@@ -112,9 +243,74 @@ public class CommentControllerTests
     {
         //ARRANGE
         //Creating objects for an "existing" comment, and a comment that will represent the changes to be made
-        Comment existingComment = new Comment { ID = id, Body = $"Comment{id}", CreatedAt = DateTime.Now, EditedAt = DateTime.Now, OriginalPost = new Post { ID = id, Topic = $"Post{id}", Body = "Body", CreatedAt = DateTime.Now, EditedAt = DateTime.Now, Category = new Category { ID = id, Name = $"Category{id}" }, Poster = new User { ID = id, Username = $"User{id}", Password = $"Password{id}" } }, Commenter = new User { ID = id, Username = $"User{id}", Password = $"Password{id}" }, ParentComment = null };
+        Comment existingComment = new Comment
+        {
+            ID = id,
+            Body = $"Comment{id}",
+            CreatedAt = DateTime.Now,
+            EditedAt = DateTime.Now,
+            OriginalPost = new Post
+            {
+                ID = id,
+                Topic = $"Post{id}",
+                Body = "Body",
+                CreatedAt = DateTime.Now,
+                EditedAt = DateTime.Now,
+                Category = new Category
+                {
+                    ID = id,
+                    Name = $"Category{id}"
+                },
+                Poster = new User
+                {
+                    ID = id,
+                    Username = $"User{id}",
+                    Password = $"Password{id}"
+                }
+            },
+            Commenter = new User
+            {
+                ID = id,
+                Username = $"User{id}",
+                Password = $"Password{id}"
+            },
+            ParentComment = null
+        };
         existingComment.OriginalPost.Tags.Add(new Tag { Name = $"Tag{id}" });
-        Comment updatedComment = new Comment { ID = id, Body = content, CreatedAt = DateTime.Now, EditedAt = DateTime.Now, OriginalPost = new Post { ID = id, Topic = $"Post{id}", Body = "Body", CreatedAt = DateTime.Now, EditedAt = DateTime.Now, Category = new Category { ID = id, Name = $"Category{id}" }, Poster = new User { ID = id, Username = $"User{id}", Password = $"Password{id}" } }, Commenter = new User { ID = id, Username = $"User{id}", Password = $"Password{id}" }, ParentComment = null };
+
+        Comment updatedComment = new Comment
+        {
+            ID = id,
+            Body = content,
+            CreatedAt = DateTime.Now,
+            EditedAt = DateTime.Now,
+            OriginalPost = new Post
+            {
+                ID = id,
+                Topic = $"Post{id}",
+                Body = "Body",
+                CreatedAt = DateTime.Now,
+                EditedAt = DateTime.Now,
+                Category = new Category
+                {
+                    ID = id,
+                    Name = $"Category{id}"
+                },
+                Poster = new User
+                {
+                    ID = id,
+                    Username = $"User{id}",
+                    Password = $"Password{id}"
+                }
+            },
+            Commenter = new User
+            {
+                ID = id,
+                Username = $"User{id}",
+                Password = $"Password{id}"
+            },
+            ParentComment = null
+        };
         updatedComment.OriginalPost.Tags.Add(new Tag { Name = $"Tag{id}" });
 
         //Configuring behavior of _mockRepository. Return existingComment asynchronously and true indicating successful update
