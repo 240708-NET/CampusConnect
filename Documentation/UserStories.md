@@ -1,4 +1,4 @@
-# Blog
+# CampusConnect
 
 1. Add / Edit Users
     + Create account
